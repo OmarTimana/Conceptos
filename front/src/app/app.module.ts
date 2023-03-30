@@ -18,6 +18,10 @@ import { ModprocesadorComponent } from './components/modprocesador/modprocesador
 import { RefimpComponent } from './components/refimp/refimp.component';
 import { ModrefpcComponent } from './components/modrefpc/modrefpc.component';
 import { ModequipoComponent } from './components/modequipo/modequipo.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Material
+
 
 @NgModule({
   declarations: [
@@ -41,6 +45,7 @@ import { ModequipoComponent } from './components/modequipo/modequipo.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
