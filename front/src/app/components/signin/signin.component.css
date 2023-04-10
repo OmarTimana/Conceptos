@@ -1,0 +1,47 @@
+.contenedor{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.largo{
+    width: 90%;
+}
+
+.carta{
+    width: 30%;
+    margin-top: 1.7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    padding: 2%;
+}
+
+.pie{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+div .ingreso{
+    height: 50px;
+    width: 36%;
+}
+
+div .olvidada{
+    height: 50px;
+    width: 50%;
+}
+
+div img{
+    margin-top: -105px;
+    margin-bottom: -40px;
+}
+
+div .nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

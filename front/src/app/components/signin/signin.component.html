@@ -1,4 +1,4 @@
-<div class="row p-5">
+<!-- <div class="row p-5">
     <div class="col-4 mx-auto">
         <div class="card">
             <div class="card-header">
@@ -60,5 +60,36 @@
             </form>
         </div>
     </div>
-</div>
+</div> -->
 
+<div class="contenedor">
+
+    <mat-toolbar class="nav" color="primary">
+        <span>Inicio</span>
+
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </mat-toolbar>
+
+
+    <div class="carta">
+        <img src="../../../assets/Ingresar.png" width="110%">
+
+        <mat-form-field class="largo" appearance="fill">
+            <mat-label>Correo</mat-label>
+            <input type="email"  matInput />
+        </mat-form-field>
+
+        <mat-form-field class="largo" appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" matInput />
+        </mat-form-field>
+
+        <div class="pie">
+            <button class="ingreso" mat-raised-button color="primary">Ingresar</button>
+
+            <button class="olvidada" mat-button>Contaseña Olvidada?</button>
+        </div>
+    </div>
+</div>
