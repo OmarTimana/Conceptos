@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 import { IntermediumService } from 'src/app/services/intermedium.service';
+import { FirmaService } from 'src/app/services/firma.service';
 
 @Component({
   selector: 'app-principal',
@@ -36,7 +37,8 @@ export class PrincipalComponent {
   tiposdep:any=[];
 
   constructor(public authService:AuthService,
-              public intmService:IntermediumService) { 
+              public intmService:IntermediumService,
+              public firmaservice:FirmaService) { 
                 this.getTiposDep()
       
         }
@@ -126,6 +128,12 @@ export class PrincipalComponent {
           }    
         }
 
-        async Request(){
-        }
+  async Request(){
+    await (await this.firmaservice.SaveFirma(this.jefe)).subscribe(async(res)=>{
+      const body=new FormData()
+      body.append('file',this.filetmp.fileraw, this.filetmp.filename);
+      body.append('res',res._id);
+      await (await this.firmaservice.saveFile(body)).subscribe()
+    })
+  }
 }
