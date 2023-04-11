@@ -82,14 +82,28 @@ div .sm{
     display: none;
 }
 
-@media screen and (max-width: 641px){
+
+/* medium screen  */
+@media screen and (max-width: 924px) {
+    div .lgD{
+        display: none;
+    }
+
+    .logOut{
+        display: none;
+    }
+
     div .sm{
-        display: block;
+        display: flex;
     }
 
     button .linkSm{
         color: black;
     }
+}
+
+/* small screen */
+@media screen and (max-width: 641px){
 
     div .lg{
         display: none;
