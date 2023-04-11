@@ -28,6 +28,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 
@@ -66,6 +67,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatIconModule,
     MatMenuModule,
     MatDividerModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

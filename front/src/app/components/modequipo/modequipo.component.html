@@ -2,6 +2,16 @@
     <div class="modal-factores">
         <h3>Registro de Equipo</h3>
     </div>
+
+    <div>
+        <mat-label>Importar Computador ya Creado</mat-label>
+        <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    </div>
     <div class="form-group">
         <label for="code">QR</label>
         <input type="text" [(ngModel)]="equipo.qr"  name="code" id="code" class="form-control" required>
