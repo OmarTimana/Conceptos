@@ -28,10 +28,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
-
-
-
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -66,6 +63,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatIconModule,
     MatMenuModule,
     MatDividerModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

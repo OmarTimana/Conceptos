@@ -54,7 +54,27 @@
 
 
         <ng-container *ngIf="authService.loggedIn(); else noLog">
-          <div class="lg">
+          <div class="lgD">
+
+            <ng-container  *ngIf="intmService.esUser() || intmService.esAdmin()">
+              <li>
+                <a routerLink="/main" routerLinkActive="active">Principal</a>
+              </li>
+              <li>
+                <a routerLink="/conceptos" routerLinkActive="active">Gestionar Conceptos</a>
+              </li> 
+            </ng-container>
+
+            <ng-container *ngIf="intmService.esAdmin()">
+              <li>
+                <a routerLink="/registeruser" routerLinkActive="active">Crear Usuarios</a>
+              </li>
+            </ng-container>            
+
+          </div>
+
+          <div class="sm">
+
             <button mat-icon-button [matMenuTriggerFor]="menu">
               <mat-icon>more_vert</mat-icon>
             </button>
@@ -72,20 +92,10 @@
                 <span>Disable alerts</span>
               </button>
             </mat-menu>
-            
 
           </div>
 
-          <div class="sm">
-
-          </div>
-
-          
-          <button mat-icon-button>
-            <mat-icon>keyboard_arrow_down</mat-icon>
-          </button>
-
-          <a style="cursor:pointer" (click)="authService.logOut()">Cerrar sesión</a>
+          <button mat-raised-button color="accent"><a style="cursor:pointer" (click)="authService.logOut()">Cerrar sesión</a></button>
           
         </ng-container>
 
@@ -129,3 +139,10 @@
  </div>
 
 
+
+
+<!-- Opcion para que al regresar no salga el cerrar sesion
+  
+&& !authService.getToken()
+            
+<a style="cursor:pointer" (click)="authService.logOut()">Cerrar sesión</a> -->

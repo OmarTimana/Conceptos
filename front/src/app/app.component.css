@@ -7,7 +7,18 @@
 
 a{
     text-decoration: none;
+    font-size: 18px;
     color: aliceblue;
+}
+
+a:hover{
+    font-size: 19px;
+    color: gainsboro;
+}
+
+a:active{
+    font-size: 19px;
+    color: #b5b5b5;
 }
 
 .linkSingIn{
@@ -23,13 +34,13 @@ a{
 .linkSingIn:hover{
     padding-top: 4px;
     background-color: #5564eb;
-    font-size: 21px;
+    font-size: 19px;
     color: gainsboro;
 }
 
 .linkSingIn:active{
     background-color: #7683ef;
-    font-size: 21px;
+    font-size: 19px;
     color: #6e6e6e;
 }
 
@@ -38,13 +49,13 @@ a{
 }
 
 .linkSingUp:hover{
-    font-size: 21px;
+    font-size: 19px;
     color: gainsboro;
 
 }
 
 .linkSingUp:active{
-    font-size: 21px;
+    font-size: 19px;
     color: #b5b5b5;
 }
 
@@ -58,6 +69,13 @@ div .nav{
 .lg{
     display: flex;
     gap: 25px;
+}
+
+.lgD{
+    display: flex;
+    width: 60%;
+    gap: 45px;
+    justify-content: center;
 }
 
 div .sm{
