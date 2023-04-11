@@ -64,32 +64,26 @@
 
 <div class="contenedor">
 
-    <mat-toolbar class="nav" color="primary">
-        <span>Inicio</span>
+    <form class="carta" (submit)="login()">
 
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-            <mat-icon>menu</mat-icon>
-        </button>
-    </mat-toolbar>
-
-
-    <div class="carta">
-        <img src="../../../assets/Ingresar.png" width="110%">
+        <img src="../../../assets/Ingresar.webp" width="80%" height="70%">
 
         <mat-form-field class="largo" appearance="fill">
             <mat-label>Correo</mat-label>
-            <input type="email"  matInput />
+            <input type="email" type="email" [(ngModel)]="user.email"  name="email" id="email"  matInput required />
         </mat-form-field>
 
         <mat-form-field class="largo" appearance="fill">
             <mat-label>Contraseña</mat-label>
-            <input type="password" matInput />
+            <input type="password" [(ngModel)]="user.password" name="pass" id="pass" matInput required />
         </mat-form-field>
 
         <div class="pie">
-            <button class="ingreso" mat-raised-button color="primary">Ingresar</button>
+            <button class="ingreso" type="submit" mat-raised-button color="primary">Ingresar</button>
 
             <button class="olvidada" mat-button>Contaseña Olvidada?</button>
         </div>
-    </div>
+
+    </form>
+    
 </div>

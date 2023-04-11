@@ -1,4 +1,4 @@
-<div class="content">
+<!-- <div class="content">
   <nav class="navbar  navbar-dark bg-primary" aria-haspopup="true">
     <a class="navbar-brand" routerLink="/home" routerLinkActive="active">Inicio</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,4 +45,87 @@
   </nav>
   <router-outlet></router-outlet>
 </div>
+ -->
+ <div class="contenedor">
+
+    <mat-toolbar class="nav" color="primary">
+
+      <a class="linkInicio" routerLink="/home" routerLinkActive="active">Inicio</a>
+
+
+        <ng-container *ngIf="authService.loggedIn(); else noLog">
+          <div class="lg">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>dialpad</mat-icon>
+                <span>Redial</span>
+              </button>
+              <button mat-menu-item disabled>
+                <mat-icon>voicemail</mat-icon>
+                <span>Check voice mail</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>notifications_off</mat-icon>
+                <span>Disable alerts</span>
+              </button>
+            </mat-menu>
+            
+
+          </div>
+
+          <div class="sm">
+
+          </div>
+
+          
+          <button mat-icon-button>
+            <mat-icon>keyboard_arrow_down</mat-icon>
+          </button>
+
+          <a style="cursor:pointer" (click)="authService.logOut()">Cerrar sesión</a>
+          
+        </ng-container>
+
+        <ng-template #noLog>
+          <div class="lg">
+            <a class="linkSingUp" routerLink="/signup" routerLinkActive="active">Registrarse</a>
+  
+            <a class="linkSingIn" routerLink="/signin" routerLinkActive="active">Ingresar</a>
+          </div>
+  
+          <div class="sm">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu">
+
+              <button mat-menu-item>
+                <mat-icon>person</mat-icon>
+                <a class="linkSm" routerLink="/signup" routerLinkActive="active">Registrarse</a>
+              </button>
+
+              <mat-divider></mat-divider>
+
+              <button mat-menu-item>
+                <mat-icon>login</mat-icon>
+                
+                <a class="linkSm" routerLink="/signin" routerLinkActive="active">Ingresar</a>
+              </button>
+              
+            </mat-menu>
+          </div>
+
+        </ng-template>
+        
+        
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+
+ </div>
+
 
