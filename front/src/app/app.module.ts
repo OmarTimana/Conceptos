@@ -20,6 +20,7 @@ import { ModrefpcComponent } from './components/modrefpc/modrefpc.component';
 import { ModequipoComponent } from './components/modequipo/modequipo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './components/shared/shared.module';
+import { DialogPassComponent } from './components/shared/dialog-pass/dialog-pass.component';
 
 
 
@@ -40,6 +41,9 @@ import { SharedModule } from './components/shared/shared.module';
     RefimpComponent,
     ModrefpcComponent,
     ModequipoComponent
+  ],
+  entryComponents: [
+    DialogPassComponent
   ],
   imports: [
     BrowserModule,

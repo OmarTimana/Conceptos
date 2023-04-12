@@ -5,6 +5,11 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 
+//Material
+import {MatDialog} from '@angular/material/dialog';
+import { DialogPassComponent } from '../shared/dialog-pass/dialog-pass.component';
+
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -22,10 +27,15 @@ export class SigninComponent implements OnInit {
    
   //Método para declarar los servicios
   constructor(
-
+    public dialog: MatDialog,
     private intmService:IntermediumService,
     private router:Router,
     private authservice:AuthService) { }
+
+  openDialog(): void {
+    this.dialog.open(DialogPassComponent);
+  }
+
 
   ngOnInit(): void {
   }
