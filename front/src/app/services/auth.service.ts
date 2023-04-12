@@ -97,6 +97,9 @@ export class AuthService {
   getPeopleCargo(){
     return this.http.get<any>(this.URL+'/auth/peoplecargo');
   }
+  getEqps(body:any){
+    return this.http.post<any>(this.URL +'/auth/geteqps',body);
+  }
 
   createEquipo(equipo:any){
     return this.http.post<any>(this.URL+'/auth/crearequipo',equipo);

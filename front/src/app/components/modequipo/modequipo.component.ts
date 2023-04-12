@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 
@@ -29,6 +30,8 @@ export class ModequipoComponent {
   people:any=[];
   refimps:any=[]
 
+  myControl = new FormControl('')
+  options:string[] = []
 
   constructor(public authService: AuthService) { 
     this.getFabricantes()
@@ -38,7 +41,6 @@ export class ModequipoComponent {
     this.getPeopleCargo()
     this.getRefIm()
   }
-
 
   onFab(e: any) {
     this.equipo.fabricante = e.target.value;
@@ -145,6 +147,22 @@ export class ModequipoComponent {
       err => console.log(err)
     );
   };
+
+  Complete($e:any){
+    const body={id:$e.target.value}
+    this.authService.getEqps(body).subscribe(res=>{
+      if (res.length!=0) {
+        this.equipo=res
+        if (this.equipo.a_cargo) {
+          this.equipo.a_cargo=res.a_cargo.ced
+        }
+        if (this.equipo.impa_cargo) {
+          this.equipo.impa_cargo=res.impa_cargo.ced
+        }
+      }
+    })
+  }
+
   public createEquipo() {
 
     if((this.equipo.a_cargo.length>0 || this.equipo.impa_cargo.length>0) && this.equipo.qr.length>0)
@@ -169,5 +187,9 @@ export class ModequipoComponent {
     }
     Swal.fire("Error","Ingrese datos válidos","error")
 
+  }
+
+  cliko(){
+    this.equipo.fabricante="XD"
   }
 }

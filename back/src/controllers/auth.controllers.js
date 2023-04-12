@@ -5,7 +5,6 @@ import Role from '../models/role'
 import Dependencia from '../models/dependencia'
 import TipoDependencia from '../models/tipoDependencia'
 import personaCargo from '../models/personacargo'
-import equipo from '../models/equipo'
 import Tabla from '../models/tabla'
 import Fabricante from '../models/fabricante'
 import Disco from '../models/discoduro'
@@ -44,8 +43,6 @@ export const signIn = async (req, res) => {
 }
 
 export const crearFabricante = async (req, res) => {
-
-
     let fabricante = await Fabricante.findOne({ name: req.body.name });
 
     if (fabricante) {
@@ -57,11 +54,9 @@ export const crearFabricante = async (req, res) => {
         //se retorna el estado 200 si el registro fue exitoso
         res.status(200).json({ savedFab })
     }
-
 }
+
 export const crearDisco = async (req, res) => {
-
-
     let disco = await Disco.findOne({ name: req.body.name });
 
     if (disco) {
@@ -73,11 +68,9 @@ export const crearDisco = async (req, res) => {
         //se retorna el estado 200 si el registro fue exitoso
         res.status(200).json({ savedDis })
     }
-
 }
+
 export const crearProcesador = async (req, res) => {
-
-
     let procesador = await Procesador.findOne({ name: req.body.name });
 
     if (procesador) {
@@ -90,40 +83,35 @@ export const crearProcesador = async (req, res) => {
         res.status(200).json({ savedPro })
     }
 }
+
 export const crearRefimp = async (req, res) => {
+    let refimp = await Refimp.findOne({ name: req.body.name });
+    console.log("refimp",refimp)
 
-
-        let refimp = await Refimp.findOne({ name: req.body.name });
-        console.log("refimp",refimp)
-
-        if (refimp) {
-            res.status(500).json("El tipo de impresora ya existe")
-        }
-        else {
-            const newRefimp = new Refimp({ name: req.body.name })
-            const savedRefimp = await newRefimp.save();
-            //se retorna el estado 200 si el registro fue exitoso
-            res.status(200).json({ savedRefimp })
-        }
-
+    if (refimp) {
+        res.status(500).json("El tipo de impresora ya existe")
     }
-
-    export const crearReferencia = async (req, res) => {
-
-
-        let referencia = await Referencia.findOne({ name: req.body.name });
-
-        if (referencia) {
-            res.status(500).json("La referencia de PC ya existe")
-        }
-        else {
-            const newRef = new Referencia({ name: req.body.name })
-            const savedRef = await newRef.save();
-            //se retorna el estado 200 si el registro fue exitoso
-            res.status(200).json({ savedRef })
-        }
-
+    else {
+        const newRefimp = new Refimp({ name: req.body.name })
+        const savedRefimp = await newRefimp.save();
+        //se retorna el estado 200 si el registro fue exitoso
+        res.status(200).json({ savedRefimp })
     }
+}
+
+export const crearReferencia = async (req, res) => {
+    let referencia = await Referencia.findOne({ name: req.body.name });
+
+    if (referencia) {
+        res.status(500).json("La referencia de PC ya existe")
+    }
+    else {
+        const newRef = new Referencia({ name: req.body.name })
+        const savedRef = await newRef.save();
+        //se retorna el estado 200 si el registro fue exitoso
+        res.status(200).json({ savedRef })
+    }
+}
 
 
 export const crearTabla = async (req, res) => {
@@ -141,76 +129,8 @@ export const crearTabla = async (req, res) => {
     //se retorna el estado 200 si el registro fue exitoso
     res.status(200).json({ savedTable })
 }
-export const crearEquipo = async (req, res) => {
-    const { qr, fabricante, referencia, disco_duro, ram, procesador, a_cargo, impqr, impref, impa_cargo, observaciones } = req.body
-    const newEquipo = new equipo({
-        qr,
-        fabricante,
-        referencia,
-        disco_duro,
-        ram,
-        procesador,
-        impqr,
-        impref,
-        observaciones
-    })
-    if (a_cargo) {
-        const foundPerson = await personaCargo.find({ ced: { $in: a_cargo } })
-        if (foundPerson) {
-            newEquipo.a_cargo = foundPerson[0].toJSON()._id
-        }
-    }
-    if (impa_cargo) {
-        const foundPers = await personaCargo.find({ ced: { $in: impa_cargo } })
-        if (foundPers) {
-            newEquipo.impa_cargo = foundPers[0].toJSON()._id
-        }
-    }
-    const savedEquip = await newEquipo.save();
-    //se retorna el estado 200 si el registro fue exitoso
-    res.status(200).json({ savedEquip })
-
-
-}
-
-export const removeEquipo = async (req, res) => {
-
-    try {
-        //Se busca el equipo y se lo elimina
-        const eqp = await equipo.findByIdAndDelete(req.params.id);
-        console.log("equipo borrado")
-        return res.status(200).json(true)
-
-    }
-    catch (error) {
-        return console.log(error)
-    }
-}
-
-export const updateEquipo = async (req, res) => {
-    //se busca el equipo y se actualiza cualquier campo
-    const eqpb = await equipo.findById(req.params.id)
-
-    const eqp = await equipo.findByIdAndUpdate(req.params.id, {
-        qr: eqpb.qr,
-        fabricante: req.body.fabricante,
-        referencia: req.body.referencia,
-        disco_duro: req.body.disco_duro,
-        ram: req.body.ram,
-        procesador: req.body.procesador,
-        impqr: eqpb.impqr,
-        impref: req.body.impref,
-        impa_cargo: eqpb.impa_cargo,
-        a_cargo: eqpb.a_cargo,
-        observaciones:req.boy.observaciones
-    },
-        { new: true })
-    return res.status(201).json({ message: "Equipo actualizado" })
-}
 
 export const removeTabla = async (req, res) => {
-
-
     try {
         //Se busca la tabla y se la elimina
         const tabla = await Tabla.findByIdAndDelete(req.params.id)
@@ -220,8 +140,6 @@ export const removeTabla = async (req, res) => {
     catch (error) {
         return res.status(400).json(false)
     }
-
-
 }
 //método para crear un nuevo espacio, esto solo lo puede hacer un Super Administrador
 export const crearDependencia = async (req, res) => {
@@ -246,8 +164,8 @@ export const crearDependencia = async (req, res) => {
     //se retorna el estado 200 si el registro fue exitoso
     res.status(200).json({ savedDep })
 }
-//método para obtener la lista de dependencias almacenadas en la base de datos
 
+//método para obtener la lista de dependencias almacenadas en la base de datos
 export const dependencias = function (req, res) {
     //variable que guarda todas las dependencias
     let dependencias = Dependencia.find({});
@@ -278,7 +196,6 @@ export const personasCargo = function (req, res) {
     )
 }
 
-
 //método para obtener el usuario
 export const getUser = async (req, res) => {
     //se busca el usuario en la base de datos por medio de la cédula
@@ -295,6 +212,7 @@ export const getUser = async (req, res) => {
         return res.status(200).json(user);
     });
 }
+
 //Método para obtener los tipos de espacios físicos
 export const tipoDependencias = function (req, res) {
     //variable que almacena la lista de todo los tipos de espacios
@@ -327,6 +245,7 @@ export const changePassword = async (req, res) => {
         return res.status(400).json(error)
     }
 }
+
 //Método para obtener los roles
 export const roles = function (req, res) {
     //variable que almacena todos los roles
@@ -344,8 +263,8 @@ export const roles = function (req, res) {
         return res.status(200).json(rolel);
     });
 };
-//Método para registrar un usuario, es diferente del método signup porque no se envía token ya que un Administrador lo ejecuta
 
+//Método para registrar un usuario, es diferente del método signup porque no se envía token ya que un Administrador lo ejecuta
 export const registrarUsuario = async (req, res) => {
     //se desestructuran los datos para obtener los parámetros necesarios
 
@@ -375,9 +294,7 @@ export const registrarUsuario = async (req, res) => {
     const savedUser = await newUser.save();
     //se envía el nombre del rol y el estatus 200
     res.status(200).json({ roles: savedUser.roles[0].toJSON().name })
-
 }
-
 
 export const fabricantes = function (req, res) {
     //variable que almacena todos los fabricantes
@@ -408,6 +325,7 @@ export const discosduro = function (req, res) {
         return res.status(200).json(disks);
     });
 };
+
 export const procesadores = function (req, res) {
     //variable que almacena todos los fabricantes
     let proces = Procesador.find({});

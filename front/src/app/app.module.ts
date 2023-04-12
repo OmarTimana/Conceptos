@@ -22,9 +22,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './components/shared/shared.module';
 import { DialogPassComponent } from './components/shared/dialog-pass/dialog-pass.component';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,11 +44,13 @@ import { DialogPassComponent } from './components/shared/dialog-pass/dialog-pass
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    SharedModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
