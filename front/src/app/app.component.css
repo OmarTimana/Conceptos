@@ -78,6 +78,10 @@ div .nav{
     justify-content: center;
 }
 
+.smD{
+    display: none;
+}
+
 div .sm{
     display: none;
 }
@@ -93,7 +97,7 @@ div .sm{
         display: none;
     }
 
-    div .sm{
+    div .smD{
         display: flex;
     }
 
@@ -107,6 +111,10 @@ div .sm{
 
     div .lg{
         display: none;
+    }
+
+    div .sm{
+        display: flex;
     }
 }
     
