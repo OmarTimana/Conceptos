@@ -242,7 +242,8 @@ export const changePassword = async (req, res) => {
         return res.status(200).json("Contraseña cambiada")
     }
     catch (error) {
-        return res.status(400).json(error)
+        // error 200 tiene que ser 400 pero si da error no manda el mensaje
+        return res.status(200).json({message: "Error"}) 
     }
 }
 
