@@ -38,7 +38,7 @@ export class IntermediumService {
         //si el rol es User se redirige a la pestaña de reservas
         if(localStorage.getItem('roles')==='USER')
         {
-          this.router.navigate(['/reservas'])
+          this.router.navigate(['/main'])
         }
         //si el rol es Admin se redirige a la pestaña de admin
         else 
