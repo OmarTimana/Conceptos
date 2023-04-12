@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-tabla',
@@ -7,7 +8,6 @@ import { Component } from '@angular/core';
 })
 export class TablaComponent {
 
-  
   equipos=[]
 
   tabla={equipost:this.equipos}

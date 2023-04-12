@@ -1,26 +1,22 @@
 <form class="from-group" id="formGeneral" name="formGeneral" (submit)="createEquipo()">
+
     <div class="modal-factores">
         <h3>Registro de Equipo</h3>
     </div>
 
-    <div>
-        <mat-label>Importar Computador ya Creado</mat-label>
-        <input type="text"
-           placeholder="Pick one"
-           aria-label="Number"
-           matInput
-           [formControl]="myControl"
-           [matAutocomplete]="auto">
-    </div>
     <div class="form-group">
-        <label for="code">QR</label>
-        <input type="text" [(ngModel)]="equipo.qr"  name="code" id="code" class="form-control" required>
+        <mat-form-field class="full-width">
+            <mat-label for="code">QR</mat-label>
+            <input matInput type="text" (change)="Complete($event)" [(ngModel)]="equipo.qr"
+                name="code" id="code" placeholder="Ingrese el QR" required
+            >
+        </mat-form-field>
     </div>
     <div class="form-group">
         <label class="col-sm-12">Fabricante</label>
         <div class="col-sm-12">
             <input list="menac" name="menac" class="form-control" placeholder="Filtrar por nombres"
-                (change)="onFab($event)"
+                (change)="onFab($event)" [(ngModel)]="equipo.fabricante"
             >
             <datalist id="menac">
                 <option *ngFor="let f of fabricantes" value="{{f.name}}">
@@ -33,7 +29,8 @@
         <label class="col-sm-12">Referencia</label>
         <div class="col-sm-12">
             <input list="ref" name="ref" class="form-control" placeholder="Filtrar por nombres"
-                (change)="onRef($event)">
+                (change)="onRef($event)" [(ngModel)]="equipo.referencia"
+            >
             <datalist id="ref">
                 <option *ngFor="let r of referencias" value="{{r.name}}">
                     {{r.name}}
@@ -45,7 +42,8 @@
         <label class="col-sm-12">Disco duro</label>
         <div class="col-sm-12">
             <input list="disk" name="disk" class="form-control" placeholder="Filtrar por nombres"
-                (change)="onDisk($event)">
+                (change)="onDisk($event)" [(ngModel)]="equipo.discoduro"
+            >
             <datalist id="disk">
                 <option *ngFor="let d of disks" value="{{d.name}}">
                     {{d.name}}
@@ -61,7 +59,8 @@
         <label class="col-sm-12">Procesador</label>
         <div class="col-sm-12">
             <input list="proc" name="proc" class="form-control" placeholder="Filtrar por nombres"
-                (change)="onProc($event)">
+                (change)="onProc($event)" [(ngModel)]="equipo.procesador"
+            >
             <datalist id="proc">
                 <option *ngFor="let p of procs" value="{{p.name}}">
                     {{p.name}}
@@ -73,7 +72,8 @@
         <label class="col-sm-12">Persona a Cargo</label>
         <div class="col-sm-12">
             <input list="person" name="person" class="form-control" placeholder="Filtrar por cédula"
-                (change)="onPer($event)">
+                (change)="onPer($event)" [(ngModel)]="equipo.a_cargo"
+            >
             <datalist id="person">
                 <option *ngFor="let per of people" value="{{per.ced}}">
                     {{per.ced}}-{{per.name}}
@@ -89,7 +89,8 @@
         <label class="col-sm-12">Referencia impresora</label>
         <div class="col-sm-12">
             <input list="refimp" name="refimp" class="form-control" placeholder="Filtrar por referencia"
-                (change)="onRefImp($event)">
+                (change)="onRefImp($event)" [(ngModel)]="equipo.impref"
+            >
             <datalist id="refimp">
                 <option *ngFor="let rimp of refimps" value="{{rimp.name}}">
                     {{rimp.name}}
@@ -101,7 +102,8 @@
         <label class="col-sm-12">Persona a Cargo  Impresora</label>
         <div class="col-sm-12">
             <input list="perimp" name="perimp" class="form-control" placeholder="Filtrar por cédula"
-                (change)="onPerImp($event)">
+                (change)="onPerImp($event)" [(ngModel)]="equipo.impa_cargo"
+            >
             <datalist id="perimp">
                 <option *ngFor="let pp of people" value="{{pp.ced}}">
                     {{pp.ced}}-{{pp.name}}
@@ -114,9 +116,9 @@
     <div class="row">
         <div class="form-group col">
             <button type="submit" class="btn btn-primary  ">Guardar</button>
-        </div>   
+        </div>
         <div class="form-group col">
             <button type="buttton" class="btn btn-cancel" data-dismiss="modal">Cerrar</button>
-        </div> 
+        </div>
     </div>   
 </form>
