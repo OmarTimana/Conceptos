@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 //Material
 import {MatDialog} from '@angular/material/dialog';
-import { DialogPassComponent } from '../shared/dialog-pass/dialog-pass.component';
+import { DialogPassComponent } from '../dialog-pass/dialog-pass.component';
 
 
 @Component({
