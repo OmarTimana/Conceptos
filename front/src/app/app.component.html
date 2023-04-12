@@ -116,7 +116,10 @@
 
           </div>
 
-          <button class="logOut" mat-raised-button color="warn"><a style="cursor:pointer" (click)="authService.logOut()">Cerrar sesión</a></button>
+          <button class="logOut" mat-raised-button color="warn">
+            <mat-icon>logout</mat-icon>
+            <a style="cursor:pointer" (click)="authService.logOut()">Cerrar sesión</a>
+          </button>
           
         </ng-container>
 

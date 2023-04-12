@@ -19,16 +19,8 @@ import { RefimpComponent } from './components/refimp/refimp.component';
 import { ModrefpcComponent } from './components/modrefpc/modrefpc.component';
 import { ModequipoComponent } from './components/modequipo/modequipo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './components/shared/shared.module';
 
-// Material
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -55,15 +47,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatMenuModule,
-    MatDividerModule,
-    MatDialogModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
