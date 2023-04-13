@@ -10,12 +10,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatDialogModule} from '@angular/material/dialog';
-import { DialogPassComponent } from './dialog-pass/dialog-pass.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 @NgModule({
   declarations: [
-    DialogPassComponent
+
   ],
   imports: [
     CommonModule,
@@ -27,6 +29,8 @@ import { DialogPassComponent } from './dialog-pass/dialog-pass.component';
     MatMenuModule,
     MatDividerModule,
     MatDialogModule,
+    MatCardModule,
+    MatSelectModule,
   ],
   exports: [
     CommonModule,
@@ -38,6 +42,8 @@ import { DialogPassComponent } from './dialog-pass/dialog-pass.component';
     MatMenuModule,
     MatDividerModule,
     MatDialogModule,
+    MatCardModule,
+    MatSelectModule,
   ]
 })
 export class SharedModule { }

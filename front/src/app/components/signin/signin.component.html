@@ -66,16 +66,18 @@
 
     <form class="carta" (submit)="login()">
 
-            <img src="../../../assets/Ingresar.webp" width="70%" height="30%">
+            <img src="../../../assets/Ingresar.webp" width="75%" height="30%">
 
             <mat-form-field class="largo" appearance="fill">
                 <mat-label>Correo</mat-label>
                 <input type="email" type="email" [(ngModel)]="user.email" name="email" id="email" matInput required />
+                <mat-icon matSuffix>alternate_email</mat-icon>
             </mat-form-field>
 
             <mat-form-field class="largo" appearance="fill">
                 <mat-label>Contraseña</mat-label>
                 <input type="password" [(ngModel)]="user.password" name="pass" id="pass" matInput required />
+                <mat-icon matSuffix>vpn_key</mat-icon>
             </mat-form-field>
 
             <div class="pie">
