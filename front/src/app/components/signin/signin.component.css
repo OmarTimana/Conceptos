@@ -15,7 +15,7 @@
 }
 
 .carta{
-    width: 45%;
+    width: 40%;
     margin-top: 1.7%;
     display: flex;
     flex-direction: column;
@@ -28,6 +28,7 @@
     width: 90%;
     display: flex;
     justify-content: space-between;
+    gap: 8px;
 }
 
 div .ingreso{

@@ -8,16 +8,19 @@
     <mat-form-field class="ancho" appearance="fill">
         <mat-label>Correo</mat-label>
         <input type="email" [(ngModel)]="user2.email"  name="email2" id="email2" matInput required />
+        <mat-icon matSuffix>alternate_email</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="ancho" appearance="fill">
         <mat-label>Contraseña</mat-label>
         <input type="password" [(ngModel)]="user2.password" name="pass2" id="pass2" matInput required />
+        <mat-icon matSuffix>vpn_key</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="ancho" appearance="fill">
         <mat-label>Confirmar Contraseña</mat-label>
         <input type="password" [(ngModel)]="user2.passwordn" name="pass3" id="pass3" matInput required />
+        <mat-icon matSuffix>vpn_key</mat-icon>
     </mat-form-field>
 
     <div class="footer">

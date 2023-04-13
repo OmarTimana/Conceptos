@@ -1,4 +1,4 @@
-<div class="container pt-5 w-75">
+<!-- <div class="container pt-5 w-75">
     <div class="row">
         <div class="col-md-8 mx-auto">
             <div class="card">
@@ -51,5 +51,76 @@
     </div>
     <br>
 </div>
+ -->
 
+ <mat-card>
 
+    <div class="head_card">
+        <mat-card-header>
+            <mat-card-title>Registrar</mat-card-title>
+            <mat-card-subtitle>Registrar Usuarios como Administradores que van a acceder al sistema</mat-card-subtitle>
+        </mat-card-header>
+    </div>
+
+    <mat-divider></mat-divider>
+    <br>
+
+    <mat-card-content>
+
+        <form class="formulario_registro" (submit)="signUp()">
+
+            <mat-form-field class="largo" appearance="fill">
+                <mat-label>Cedula</mat-label>
+                <input type="text" [(ngModel)]="user.ced" name="ced" id="ced" matInput required autofocus/>
+                <mat-icon matSuffix>payment</mat-icon>
+            </mat-form-field>
+    
+            <mat-form-field class="largo" appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input type="text" [(ngModel)]="user.name" name="nombre" id="nombre" matInput required />
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+            <ng-container *ngIf="authService.loggedIn() && intmService.esAdmin()">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Tipo de Usuario</mat-label>
+                    <mat-select [(ngModel)]="user.roles" name="roles" id="roles" ng-disabled="perfil_isEdit" name="roles" id="roles" required (change)="onRole($event)">
+                        <mat-option *ngFor="let rol of roles" ngDefaultControl [value]="rol.name">
+                            {{rol.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </ng-container> 
+    
+            <mat-form-field class="largo" appearance="fill">
+                <mat-label>Correo</mat-label>
+                <input type="email" [(ngModel)]="user.email" name="email" id="email" matInput required />
+                <mat-icon matSuffix>alternate_email</mat-icon>
+            </mat-form-field>
+    
+            <mat-form-field class="largo" appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input type="password" [(ngModel)]="user.password" name="pass" id="pass" matInput required />
+                <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="largo" appearance="fill">
+                <mat-label>Teléfono</mat-label>
+                <input type="tel" [(ngModel)]="user.telefono" name="tel" id="tel" matInput required />
+                <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+
+            <mat-card-actions>
+                <button type="submit" mat-raised-button color="primary">Registrar</button>
+            </mat-card-actions>
+
+        </form>
+      
+    </mat-card-content>
+
+    
+
+  </mat-card>
+  

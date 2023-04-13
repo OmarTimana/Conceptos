@@ -71,9 +71,11 @@ export class CrearusuariosComponent implements OnInit {
      if(this.user.email.indexOf("@udenar.edu.co")!==-1)
      {
        //se ejecuta el método del servicio enviado al user
-       this.authService.registerUser(this.user)    
+       console.log(this.user) 
+       this.authService.registerUser(this.user)   
        .subscribe(
-         res=>{        
+         res=>{
+          console.log(res)
           //se registra al usuario y se lanza un mensaje de éxito
           Swal.fire("Registro exitoso","El usuario fue registrado","success")  
           //luego se limpian todos los campos
