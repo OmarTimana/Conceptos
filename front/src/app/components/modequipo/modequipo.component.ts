@@ -182,7 +182,13 @@ export class ModequipoComponent {
           this.equipo.qr=''
          },
          //en caso de error se muestra el error por consola
-         err=>Swal.fire("Error","El equipo ya existe","error")
+         err=>{
+          if (err.error.message==='Persona a Cargo no encontrado') {
+            Swal.fire("Error",err.error.message,"error")
+          }else{
+            Swal.fire("Error","El equipo ya existe","error")
+          }
+         }
       )
     }
   }

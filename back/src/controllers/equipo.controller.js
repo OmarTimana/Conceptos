@@ -44,12 +44,11 @@ export const updateEquipo = async (req, res) => {
     let impa_cargo=''
     if (eqpa.impa_cargo) {impa_cargo=eqpa.impa_cargo.ced}
     if (req.body.a_cargo && req.body.a_cargo.length>0 && req.body.a_cargo!=a_cargo.ced) {
-        console.log("cambia a_cargo");
         const foundPerson = await personaCargo.findOne({ ced: { $in: req.body.a_cargo } })
         if (foundPerson) {
             a_cargo = foundPerson._id
         }else{
-            return res.status(400).json({message:'Persona a Cargo no encontrado'})
+            return res.status(300).json({message:'Persona a Cargo no encontrado'})
         }
     }
     await equipo.findByIdAndUpdate(req.body._id, {
@@ -68,7 +67,7 @@ export const updateEquipo = async (req, res) => {
         if (foundPers) {
             impa_cargo = foundPers._id
         }else{
-            return res.status(400).json({message:'Persona a Cargo no encontrado'})
+            return res.status(300).json({message:'Persona a Cargo no encontrado'})
         }
         await equipo.findByIdAndUpdate(req.body._id, {
             impqr: req.body.impqr,
