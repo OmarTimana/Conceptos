@@ -1,5 +1,14 @@
+.contenedor{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 2%;
+}
+
 mat-card{
-    margin-top:4%;
+    width: 50%;
+    height: 80%;
+    justify-self: center;
 }
 
 .formulario_registro{
@@ -13,6 +22,14 @@ mat-card-actions{
 }
 
 mat-card-actions button{
-    width: 60%;
+    width: 80%;
     height: 55px;
+}
+
+.imagen{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    align-self: center;
+    margin-bottom: 2%;
 }
