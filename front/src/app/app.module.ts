@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table'  
+
 import { CrearusuariosComponent } from './components/crearusuarios/crearusuarios.component';
 import { CreardependenciaComponent } from './components/creardependencia/creardependencia.component';
 
@@ -21,6 +23,7 @@ import { ModequipoComponent } from './components/modequipo/modequipo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './components/shared/shared.module';
 import { DialogPassComponent } from './components/dialog-pass/dialog-pass.component';
+import { EditarconceptoComponent } from './components/editarconcepto/editarconcepto.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import { DialogPassComponent } from './components/dialog-pass/dialog-pass.compon
     RefimpComponent,
     ModrefpcComponent,
     ModequipoComponent,
-    DialogPassComponent
+    DialogPassComponent,
+    EditarconceptoComponent
   ],
   entryComponents: [
     DialogPassComponent
@@ -51,7 +55,8 @@ import { DialogPassComponent } from './components/dialog-pass/dialog-pass.compon
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

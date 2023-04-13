@@ -6,6 +6,8 @@ import { CrearusuariosComponent } from './components/crearusuarios/crearusuarios
 import { CreardependenciaComponent } from './components/creardependencia/creardependencia.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { ConceptoComponent } from './components/concepto/concepto.component';
+import { EditarconceptoComponent } from './components/editarconcepto/editarconcepto.component';
+
 
 const routes: Routes = [
   {
@@ -31,6 +33,11 @@ const routes: Routes = [
   {
     path:'conceptos',
     component:ConceptoComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'editconcept',
+    component:EditarconceptoComponent,
     canActivate:[AuthGuard]
   }
 ];

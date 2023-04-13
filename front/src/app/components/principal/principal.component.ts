@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 import { IntermediumService } from 'src/app/services/intermedium.service';
 import { FirmaService } from 'src/app/services/firma.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-principal',
@@ -38,7 +39,8 @@ export class PrincipalComponent {
 
   constructor(public authService:AuthService,
               public intmService:IntermediumService,
-              public firmaservice:FirmaService) { 
+              public firmaservice:FirmaService,
+              public router:Router) { 
                 this.getTiposDep()
       
         }
@@ -79,6 +81,9 @@ export class PrincipalComponent {
    
         }
 
+  onEdit(){
+    this.router.navigate(['/editconcept'])
+  }
   createDep(){
     if(this.dependencia.id_unidad.length>0 && this.dependencia.nombre_unidad.length>0)
     {
@@ -128,6 +133,7 @@ export class PrincipalComponent {
           }    
         }
 
+  
   async Request(){
     await (await this.firmaservice.SaveFirma(this.jefe)).subscribe(async(res)=>{
       const body=new FormData()
