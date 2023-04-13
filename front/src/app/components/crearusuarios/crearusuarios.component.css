@@ -7,7 +7,6 @@
 
 mat-card{
     width: 50%;
-    height: 80%;
     justify-self: center;
 }
 
@@ -29,7 +28,22 @@ mat-card-actions button{
 .imagen{
     display: flex;
     justify-content: center;
-    width: 60%;
+    width: 65%;
     align-self: center;
     margin-bottom: 2%;
+}
+
+
+/* media screen  */
+@media screen and (max-width: 768px){
+    mat-card{
+        width: 70%;
+    }
+}
+
+/* small screen */
+@media screen and (max-width: 425px){
+    mat-card{
+        width: 90%;
+    }
 }
