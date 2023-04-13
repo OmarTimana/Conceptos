@@ -101,7 +101,7 @@ export class AuthService {
     return this.http.post<any>(this.URL +'/auth/geteqps',body);
   }
 
-  createEquipo(equipo:any){
+  createEquipo(equipo:object){
     return this.http.post<any>(this.URL+'/auth/crearequipo',equipo);
   }
 }

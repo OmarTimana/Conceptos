@@ -15,10 +15,10 @@
     <div class="form-group">
         <label class="col-sm-12">Fabricante</label>
         <div class="col-sm-12">
-            <input list="menac" name="menac" class="form-control" placeholder="Filtrar por nombres"
+            <input list="fabic" name="fabic" class="form-control" placeholder="Filtrar por nombres"
                 (change)="onFab($event)" [(ngModel)]="equipo.fabricante"
             >
-            <datalist id="menac">
+            <datalist id="fabic">
                 <option *ngFor="let f of fabricantes" value="{{f.name}}">
                     {{f.name}}
                 </option>
@@ -42,7 +42,7 @@
         <label class="col-sm-12">Disco duro</label>
         <div class="col-sm-12">
             <input list="disk" name="disk" class="form-control" placeholder="Filtrar por nombres"
-                (change)="onDisk($event)" [(ngModel)]="equipo.discoduro"
+                (change)="onDisk($event)" [(ngModel)]="equipo.disco_duro"
             >
             <datalist id="disk">
                 <option *ngFor="let d of disks" value="{{d.name}}">
@@ -52,8 +52,8 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="name">RAM</label>
-        <input type="text" [(ngModel)]="equipo.ram"  name="name" id="name" class="form-control" required>
+        <label for="ram">RAM</label>
+        <input type="text" [(ngModel)]="equipo.ram"  name="ram" id="ram" class="form-control" required>
     </div>
     <div class="form-group">
         <label class="col-sm-12">Procesador</label>
@@ -82,8 +82,8 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="name">QR impresora</label>
-        <input type="text" [(ngModel)]="equipo.impqr"  name="name" id="name" class="form-control" required>
+        <label for="qri">QR impresora</label>
+        <input type="text" [(ngModel)]="equipo.impqr"  name="qri" id="qri" class="form-control" required>
     </div>
     <div class="form-group">
         <label class="col-sm-12">Referencia impresora</label>

@@ -45,9 +45,9 @@ router.get('/getrefpc',authCtrl.refspc)
 router.get('/peoplecargo',authCtrl.personasCargo)
 
 //ruta para crear equipo
-router.post('/crearequipo',verifySingup.checkEquipoExist,equipoCtrl.crearEquipo)
+router.post('/crearequipo',equipoCtrl.crearEquipo) // se quito el checkEquipoExiste
 router.delete('/removequipo/:id',equipoCtrl.removeEquipo)
-router.get('/modeqp/:id', equipoCtrl.updateEquipo)
+router.post('/modeqp', equipoCtrl.updateEquipo)
 router.post('/geteqps',equipoCtrl.GetEquipos)
 
 export default router;

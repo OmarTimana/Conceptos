@@ -14,7 +14,7 @@ export class ModequipoComponent {
     qr: '',
     fabricante: '',
     referencia: '',
-    discoduro: '',
+    disco_duro: '',
     ram: '',
     procesador: '',
     a_cargo: '',
@@ -77,7 +77,7 @@ export class ModequipoComponent {
   };
 
   onDisk(e: any) {
-    this.equipo.discoduro = e.target.value;
+    this.equipo.disco_duro = e.target.value;
   }
 
   getDiscos() {
@@ -151,7 +151,7 @@ export class ModequipoComponent {
   Complete($e:any){
     const body={id:$e.target.value}
     this.authService.getEqps(body).subscribe(res=>{
-      if (res.length!=0) {
+      if (res && res.length!=0) {
         this.equipo=res
         if (this.equipo.a_cargo) {
           this.equipo.a_cargo=res.a_cargo.ced
@@ -164,29 +164,27 @@ export class ModequipoComponent {
   }
 
   public createEquipo() {
-
-    if((this.equipo.a_cargo.length>0 || this.equipo.impa_cargo.length>0) && this.equipo.qr.length>0)
-    {
+    if((this.equipo.a_cargo.length>0 || this.equipo.impa_cargo.length>0) && this.equipo.qr.length>0){
       this.authService.createEquipo(this.equipo).subscribe(
         res=>{        
           //se registra al usuario y se lanza un mensaje de éxito
-          Swal.fire("Registro exitoso","El equipo fue registrado","success")  
+          Swal.fire("Registro exitoso","Equipo Añadido","success")  
           //luego se limpian todos los campos
           this.equipo.a_cargo=''
-          this.equipo.discoduro=''
+          this.equipo.impa_cargo=''
+          this.equipo.disco_duro=''
           this.equipo.fabricante=''
+          this.equipo.procesador=''
           this.equipo.impqr=''
           this.equipo.impref=''
           this.equipo.ram=''
           this.equipo.referencia=''
-
+          this.equipo.qr=''
          },
          //en caso de error se muestra el error por consola
          err=>Swal.fire("Error","El equipo ya existe","error")
       )
     }
-    Swal.fire("Error","Ingrese datos válidos","error")
-
   }
 
   cliko(){
