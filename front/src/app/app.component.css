@@ -38,6 +38,18 @@ a:active{
     color: gainsboro;
 }
 
+.sm button{
+    margin-right: -14px;
+}
+
+.smD button{
+    margin-right: -14px;
+}
+
+.linkInicio{
+    margin-left: 4px;
+}
+
 .linkSingIn:active{
     background-color: #7683ef;
     font-size: 19px;
@@ -115,6 +127,7 @@ div .sm{
 
     div .sm{
         display: flex;
+        margin-left: -20px;
     }
 }
     
