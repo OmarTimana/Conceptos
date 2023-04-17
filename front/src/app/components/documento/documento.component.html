@@ -1,1 +1,43 @@
-<p>documento works!</p>
+<form class="from-group col-sm-10"  style="margin:0 auto" id="formGeneral" name="formGeneral" (submit)="createDocumento()">
+    <div class="modal-factores">
+        <h3>Crear Documento</h3>
+    </div>
+    <div class="form-group">
+        <label for="para">Dirigido a</label>
+        <input type="text" [(ngModel)]="documento.para"  name="para" id="para" class="form-control" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="remitente">Remitente</label>
+        <input type="text" [(ngModel)]="documento.de"  name="remitente" id="remitente" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="asunto">Asunto</label>
+        <input type="text" [(ngModel)]="documento.asunto"  name="asunto" id="asunto" class="form-control" required>
+    </div>
+    <div class="from-group">
+        <label class="col-sm-10" for="hallazgos">Hallazgos</label>
+        <textarea class="form-control"  id="hallazgos" rows="5" [(ngModel)]="documento.hallazgos" required></textarea>
+    </div>
+    <div class="from-group">
+        <label class="col-sm-10" for="notas">Notas</label>
+        <textarea class="form-control"  id="notas" rows="5" [(ngModel)]="documento.notas" required></textarea>
+    </div>
+    <div class="from-group">
+        <label class="col-sm-10" for="recomendaciones">Recomendaciones</label>
+        <textarea class="form-control"  id="recomendaciones" rows="5" [(ngModel)]="documento.recomendaciones" required></textarea>
+    </div>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary  m-1">Firma Jefe Soporte</button>
+        <button type="button" class="btn btn-secondary  m-1">Firma Jefe Infraestructura IT</button>
+    </div>
+
+    <div class="row">
+        <div class="form-group col">
+            <button type="submit" class="btn btn-primary  ">Guardar</button>
+        </div>   
+        <div class="form-group col">
+            <button type="buttton" class="btn btn-cancel" data-dismiss="modal">Cerrar</button>
+        </div> 
+    </div>   
+</form>
