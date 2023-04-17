@@ -11,6 +11,8 @@ import Disco from '../models/discoduro'
 import Procesador from '../models/procesador'
 import Refimp from '../models/refimpresora'
 import Referencia from '../models/referencia'
+import Firma from '../models/firma'
+import Documento from '../models/documento'
 
 //controlador para manejar todo lo referente a token y usuarios
 
@@ -295,6 +297,50 @@ export const registrarUsuario = async (req, res) => {
     const savedUser = await newUser.save();
     //se envía el nombre del rol y el estatus 200
     res.status(200).json({ roles: savedUser.roles[0].toJSON().name })
+}
+export const crearDocumento= async (req,res) => {
+    const { fecha,para,de,asunto,hallazgos,notas,recomendaciones,firmaSop,firmaIIT } = req.body;
+    //se crea un nuevo usuario
+    const newDocumento = new Documento({
+        fecha,
+        para,
+        de,
+        asunto,
+        hallazgos,
+        notas,
+        recomendaciones
+    })
+    //se valida si el rol diferente a USER existe
+    // if (firmaSop) {
+    //     //se busca la firma y se guarda el id
+    //     const foundSop = await Firma.findOne({ cargo: { $in:foundSop} })
+    //     //en caso de existir se guarda el ObjectId de la firma
+    //     newDocumento.firmaSop = foundSop.map(firma => firma._id)
+    // }
+    // //se valida si el rol diferente a USER existe
+    // if (firmaIIT) {
+    //     //se busca la firma y se guarda el id
+    //     const foundIT = await Firma.find({ cargo: { $in: firmaIT } })
+    //     //en caso de existir se guarda el ObjectId de la firma
+    //     newDocumento.firmaIIT = foundIT.map(firma => firma._id)
+    // }
+    
+
+    //se envía el usuario a la base de datos
+    const savedDocumento = await newDocumento.save();
+    //se envía el nombre del rol y el estatus 200
+    res.status(200).json({ documento: savedDocumento.toJSON()})
+
+}
+export const editarDocumento=async(req,res)=>{
+    
+}
+
+//TOCA TRAER LAS FIRMAS
+export const firmas=async (req,res) =>{
+    let firmas=Firma.find({});
+
+
 }
 
 export const fabricantes = function (req, res) {
