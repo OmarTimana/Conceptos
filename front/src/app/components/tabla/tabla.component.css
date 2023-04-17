@@ -1,0 +1,36 @@
+.contenedor{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor .tabla{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botones{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 15px;
+}
+
+.botones button{
+    padding: 10px;
+    width: auto;
+    height: 100%;
+}
+
+@media screen and (max-width: 345px) {
+
+    mat-paginator{
+        width: 120%;
+    }
+
+    .contenedor .tabla{
+        width: 90%;
+    }
+}

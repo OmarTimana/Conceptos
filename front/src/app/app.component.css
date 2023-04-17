@@ -29,6 +29,7 @@ a:active{
     background-color: #3f51b5;
     border: 2px solid aliceblue;
     border-radius: 5px;
+    margin-right: 20px;
 }
 
 .linkSingIn:hover{
@@ -38,16 +39,12 @@ a:active{
     color: gainsboro;
 }
 
-.sm button{
-    margin-right: -14px;
-}
-
-.smD button{
-    margin-right: -14px;
+.logOut{
+    margin-right: 22px;
 }
 
 .linkInicio{
-    margin-left: 4px;
+    margin-left: 20px;
 }
 
 .linkSingIn:active{
@@ -103,6 +100,7 @@ div .sm{
 @media screen and (max-width: 924px) {
     div .lgD{
         display: none;
+        gap: 0px;
     }
 
     .logOut{
@@ -127,7 +125,6 @@ div .sm{
 
     div .sm{
         display: flex;
-        margin-left: -20px;
     }
 }
     

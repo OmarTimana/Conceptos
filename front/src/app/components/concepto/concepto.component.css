@@ -1,0 +1,60 @@
+.contenedor{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 4%;
+
+}
+
+.contenedor div{
+    width: 100%;
+}
+
+mat-form-field, mat-tab-group{
+    width: 100%;
+}
+
+h1{
+    text-align: left;
+}
+
+.tabla{
+    width: 100%;
+}
+
+mat-button-toggle-group{
+    width: 100%;
+}
+
+mat-button-toggle{
+    width: 50%;
+}
+
+h1{
+    font-weight: 400;
+}
+
+/* pantalla media grande */
+@media screen and (max-width: 992px) {
+    .contenedor{
+        width: 90%;
+    
+    }
+
+    h1{
+        font-weight: 500;
+    }
+
+    
+}
+
+@media screen and (max-width: 400px) {
+    
+    h1{
+        font-size: 130%;
+        font-weight: 600;
+    }
+    
+}
+    
+    
