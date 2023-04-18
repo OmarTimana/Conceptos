@@ -50,7 +50,13 @@ import { CrearPdfComponent } from './components/crear-pdf/crear-pdf.component';
     CrearPdfComponent
   ],
   entryComponents: [
-    DialogPassComponent
+    DialogPassComponent,
+    ModequipoComponent,
+    ModfabricanteComponent,
+    ModiscoComponent,
+    ModprocesadorComponent,
+    ModrefpcComponent,
+    RefimpComponent,
   ],
   imports: [
     BrowserModule,

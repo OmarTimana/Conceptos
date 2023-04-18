@@ -1,4 +1,4 @@
-<form class="form-group" style="margin:0 auto" id="formGeneral" name="formGeneral" (submit)="createRef()">
+<!-- <form class="form-group" style="margin:0 auto" id="formGeneral" name="formGeneral" (submit)="createRef()">
     <div class="modal-factores">
         <h3>Registro de Referencia PC</h3>
     </div>
@@ -15,4 +15,22 @@
             <button type="buttton" class="btn btn-cancel" data-dismiss="modal">Cerrar</button>
         </div> 
     </div>   
+</form> -->
+
+<form class="contenedor" id="formGeneral" name="formGeneral" (submit)="createRef()">
+    <div class="contenido">
+        <h2>Registro de Referencia PC</h2>
+        <mat-divider></mat-divider>
+            
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" [(ngModel)]="ref.name"  name="name" id="name" required>
+        </mat-form-field>
+
+        <div class="footer">
+            <button type="submit" mat-raised-button color="primary">Guardar</button>
+
+            <button mat-raised-button color="warn" [mat-dialog-close]="true">Cancelar</button>
+        </div>
+    </div>
 </form>

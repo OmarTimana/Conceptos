@@ -1,4 +1,4 @@
-<div class="container-fluid m-3">
+<!-- <div class="container-fluid m-3">
     <form class="from-group col-8 "  style="margin:0 auto" id="formGeneral" name="formGeneral" (submit)="createConcep()">
         <div class="modal-factores">
             <h3>Creación de conceptos técnicos</h3>
@@ -40,11 +40,58 @@
             </div>
         </div> 
     </form>
+
     <div *ngIf="showtabla" >
-        <app-tabla></app-tabla>
+        <app-documento></app-documento>
     </div>
+    
     <div *ngIf="showdocumento" >
         <app-documento></app-documento>
     </div>
+</div> -->
+
+
+<div class="contenedor">
+
+    <div>
+
+        <h1>Creación de Conceptos Técnicos</h1>
+        <hr>
+
+        <mat-form-field class="largo" appearance="fill">
+            <mat-label>Nombre Concepto</mat-label>
+            <input type="text" [(ngModel)]="concepto.name"  name="name" id="name" matInput required autocomplete="off"/>
+            <mat-icon matSuffix>text_format</mat-icon>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre Dependencia</mat-label>
+            <mat-select [(ngModel)]="version.dependencia"ng-disabled="perfil_isEdit" name="tiposdep" id="tiposdep" required (change)="onDep($event)">
+                <mat-option *ngFor="let dep of dependencias"  ngDefaultControl [value]="dep.id_unidad">
+                    {{dep.nombre_unidad}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    
+        <mat-button-toggle-group color="primary">
+            <mat-button-toggle (click)="cargarTabla()" checked="{{showtabla}}">Crear Tabla</mat-button-toggle>
+            <mat-button-toggle (click)="cargarDocumento()" checked="{{showdocumento}}">Crear Documento</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <hr>
+
+        <div>
+            <div *ngIf="showtabla" class="tabla">
+                <app-tabla></app-tabla>
+            </div>
+            
+            <div *ngIf="showdocumento" class="tabla">
+                <app-documento></app-documento>
+            </div>
+        </div>
+    </div>
+
+
 </div>
+
 

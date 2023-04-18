@@ -12,6 +12,10 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+
 
 
 
@@ -31,6 +35,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatDialogModule,
     MatCardModule,
     MatSelectModule,
+    MatButtonToggleModule,
+    MatPaginatorModule,
+    MatTableModule,
+    
   ],
   exports: [
     CommonModule,
@@ -44,6 +52,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatDialogModule,
     MatCardModule,
     MatSelectModule,
+    MatButtonToggleModule,
+    MatPaginatorModule,
+    MatTableModule,
   ]
 })
 export class SharedModule { }
