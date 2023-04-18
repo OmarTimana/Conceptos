@@ -1,4 +1,4 @@
-<form class="from-group" id="formGeneral" name="formGeneral" (submit)="createEquipo()">
+<!-- <form class="from-group" id="formGeneral" name="formGeneral" (submit)="createEquipo()">
 
     <div class="modal-factores">
         <h3>Registro de Equipo</h3>
@@ -128,4 +128,134 @@
             <button type="buttton" class="btn btn-cancel" data-dismiss="modal">Cerrar</button>
         </div>
     </div>   
+</form> -->
+
+<form class="contenedor" id="formGeneral" name="formGeneral" (submit)="createEquipo()">
+    <div class="contenido">
+        <h2>Registro de Equipo</h2>
+        <mat-divider></mat-divider>
+
+        <div class="fila">
+            <mat-form-field class="full-width">
+                <mat-label for="code">QR</mat-label>
+                <input matInput type="text" (change)="Complete($event)" [(ngModel)]="equipo.qr" name="code" id="code" placeholder="Ingrese el QR" required>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Fabricante</mat-label>
+                <input matInput type="text" list="menac" name="menac" class="form-control" placeholder="Filtrar por nombres"
+                    (change)="onFab($event)" [(ngModel)]="equipo.fabricante" required>
+                <datalist id="menac" required>
+                    <option *ngFor="let f of fabricantes" value="{{f.name}}">
+                        {{f.name}}
+                    </option>
+                </datalist>
+            </mat-form-field> 
+        </div>
+
+        <div class="fila">
+            <mat-form-field appearance="fill">
+                <mat-label>Referencia</mat-label>
+                <input matInput type="text" list="ref" name="ref" class="form-control" placeholder="Filtrar por nombres" (change)="onRef($event)" [(ngModel)]="equipo.referencia" required>
+                <datalist id="ref" required>
+                    <option *ngFor="let r of referencias" value="{{r.name}}">
+                        {{r.name}}
+                    </option>
+                </datalist>
+            </mat-form-field> 
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Disco Duro</mat-label>
+                <input matInput type="tex" list="disk" name="disk" class="form-control" placeholder="Filtrar por nombres" (change)="onDisk($event)" [(ngModel)]="equipo.discoduro" required>
+                <datalist id="disk" required>
+                    <option *ngFor="let d of disks" value="{{d.name}}">
+                        {{d.name}}
+                    </option>
+                </datalist>
+            </mat-form-field> 
+        </div>
+
+        <div class="fila">
+            <mat-form-field appearance="fill">
+                <mat-label>RAM</mat-label>
+                <input matInput type="text" [(ngModel)]="equipo.ram"  name="name" id="name" class="form-control" required>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Procesador</mat-label>
+                <input matInput type="text" list="proc" name="proc" class="form-control" placeholder="Filtrar por nombres" (change)="onProc($event)" [(ngModel)]="equipo.procesador" required>
+                <datalist id="proc" required>
+                    <option *ngFor="let p of procs" value="{{p.name}}">
+                        {{p.name}}
+                    </option>
+                </datalist>
+            </mat-form-field> 
+        </div>
+
+        <div class="fila">
+            <mat-form-field appearance="fill">
+                <mat-label>Persona a Cargo Equipo</mat-label>
+                <input matInput list="person" name="person" class="form-control" placeholder="Filtrar por cédula" (change)="onPer($event)" [(ngModel)]="equipo.a_cargo" required>
+                <datalist id="person" required>
+                    <option *ngFor="let per of people" value="{{per.ced}}">
+                        {{per.ced}}-{{per.name}}
+                    </option>
+                </datalist>
+            </mat-form-field> 
+
+            <mat-form-field appearance="fill">
+                <mat-label>QR Impresora</mat-label>
+                <input matInput type="text" [(ngModel)]="equipo.impqr"  name="name" id="name" class="form-control">
+            </mat-form-field> 
+        </div>
+
+        <div class="fila">
+            <mat-form-field appearance="fill">
+                <mat-label>Referencia Impresora</mat-label>
+                <input matInput list="refimp" name="refimp" class="form-control" placeholder="Filtrar por referencia" (change)="onRefImp($event)" [(ngModel)]="equipo.impref">
+            <datalist id="refimp">
+                <option *ngFor="let rimp of refimps" value="{{rimp.name}}">
+                    {{rimp.name}}
+                </option>
+            </datalist>
+            </mat-form-field> 
+
+            <mat-form-field appearance="fill">
+                <mat-label>Persona a Cargo Impresora</mat-label>
+                <input matInput list="perimp" name="perimp" class="form-control" placeholder="Filtrar por cédula" (change)="onPerImp($event)" [(ngModel)]="equipo.impa_cargo">
+                <datalist id="perimp">
+                    <option *ngFor="let pp of people" value="{{pp.ced}}">
+                        {{pp.ced}}-{{pp.name}}
+                    </option>
+                </datalist>
+            </mat-form-field>
+        </div>
+
+        <div class="fila">
+            <mat-form-field class="full-width">
+                <mat-label for="obs">Observaciones</mat-label>
+                <textarea matInput type="textarea" [(ngModel)]="equipo.observaciones" name="obs" id="obs"></textarea>
+            </mat-form-field>
+        </div>
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>Marca Impresora</mat-label>
+            <mat-select [(ngModel)]="refimp.marca" name="tipos" id="tipos" required (change)="onMarca($event)">
+              <mat-option *ngFor="let marca  of marcas" [value]="marca">
+                {{marca}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Modelo</mat-label>
+            <input matInput type="text" [(ngModel)]="refimp.desc"  name="name" id="name" required>
+        </mat-form-field> -->
+            
+
+        <div class="footer">
+            <button type="submit" mat-raised-button color="primary">Guardar</button>
+
+            <button mat-raised-button color="warn" [mat-dialog-close]="true">Cancelar</button>
+        </div>
+    </div>
 </form>
