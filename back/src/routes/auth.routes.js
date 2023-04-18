@@ -22,6 +22,8 @@ router.post('/registerperson', verifySingup.checkDuplicatedCed,personCtrl.regist
 
 router.post('/registerfab',authCtrl.crearFabricante)
 
+router.post('/registerdocument',authCtrl.crearDocumento)
+
 router.post('/registerdisk',authCtrl.crearDisco)
 router.post('/registerproc',authCtrl.crearProcesador)
 router.post('/registerefimp',authCtrl.crearRefimp)

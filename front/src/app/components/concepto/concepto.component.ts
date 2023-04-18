@@ -32,6 +32,7 @@ export class ConceptoComponent {
   public cargarDocumento(){
     if(!this.showdocumento){
       this.showdocumento=true
+      this.showtabla=false
     }
     else if(this.showdocumento)
       {
@@ -39,8 +40,10 @@ export class ConceptoComponent {
       }
   }
   public cargarTabla(){
-    if(!this.showtabla)
-      {this.showtabla=true}
+    if(!this.showtabla){
+      this.showtabla=true
+      this.showdocumento=false
+    }
     else if(this.showtabla)
     {
       this.showtabla=false

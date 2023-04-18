@@ -22,29 +22,31 @@ export const checkDuplicatedCedorEmail = async (req, res, next) => {
     //busca el usuario por cédula
     const user = await User.findOne({ ced: req.body.ced })
      //si lo encuentra retorna un mensaje de que ya existe
-    if (user) return res.status(400).json({ message: 'El usuario ya existe' })
+    if (user) return res.status(401).json({ message: 'El usuario ya existe' })
      //busca el usuario por correo electrónico
     const email = await User.findOne({ email: req.body.email })
     //si lo encuentra retorna un mensaje de que el correo ya existe
-    if (email) return res.status(400).json({ message: "El correo ya está registrado" })
+    if (email) return res.status(401).json({ message: "El correo ya está registrado" })
  //si no encuentra usuario ni por cédula ni correo deja ejecutar la función siguiente
     next();
 }
 
 export const checkDuplicatedCed=async(req,res,next)=>{
     const persona=await personaCargo.findOne({ced:req.body.ced})
-    if(persona) return res.status(400).json({message:'Esta persona ya existe'})
+    if(persona) return res.status(402).json({message:'Esta persona ya existe'})
     else next();
     
 }
 //verifica si el rol del usuario existe
 export const checkRolesExisted = (req, res, next) => {
+    // console.log(req.body.roles);
+    // console.log(ROLES);
      //busca que el rol enviado en el body exista en el arreglo de roles declarado
     if (req.body.roles) {
         for (let i = 0; i < req.body.roles.length; i++) {
              //si no lo encuentra retorna un mensaje de que el rol no existe
-            if (!ROLES.includes(req.body.roles[i])) {
-                return res.status(400).json({
+            if (!ROLES.includes(req.body.roles)) {//se borro el [i] req.body.roles[i]XD
+                return res.status(403).json({
                     message: "el rol no existe"
                 }
                 )
@@ -89,13 +91,13 @@ export const checkDependenciaExist = (req, res, next) => {
             next();
         } else {
              //si la dependencia no existe retorna un mensaje
-            return res.status(400).json({
+            return res.status(404).json({
                 message: "La dependencia no existe" + dep
             })
         }
         
     }).catch(function (err) {
-        return res.status(400).json({
+        return res.status(404).json({
             //en caso de error envía un mensaje
             message: "error con la base de datos"
         })

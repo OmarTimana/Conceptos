@@ -20,7 +20,8 @@ export class ModequipoComponent {
     a_cargo: '',
     impqr: '',
     impref: '',
-    impa_cargo: ''
+    impa_cargo: '',
+    observaciones:''
   }
 
   fabricantes :any= [];
