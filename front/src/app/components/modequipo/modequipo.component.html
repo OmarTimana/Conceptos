@@ -53,7 +53,18 @@
     </div>
     <div class="form-group">
         <label for="ram">RAM</label>
-        <input type="text" [(ngModel)]="equipo.ram"  name="ram" id="ram" class="form-control" required>
+        <input type="number" [(ngModel)]="equipo.ram"  name="ram" id="ram" class="form-control" required>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Select an option</mat-label>
+            <mat-select>
+              <mat-option>None</mat-option>
+              <mat-option value="option1">Option 1</mat-option>
+              <mat-option value="option2">Option 2</mat-option>
+              <mat-option value="option3">Option 3</mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
     <div class="form-group">
         <label class="col-sm-12">Procesador</label>
@@ -69,7 +80,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-12">Persona a Cargo</label>
+        <label class="col-sm-12">Cedula de Persona a Cargo</label>
         <div class="col-sm-12">
             <input list="person" name="person" class="form-control" placeholder="Filtrar por cédula"
                 (change)="onPer($event)" [(ngModel)]="equipo.a_cargo" autocomplete="off"
@@ -99,7 +110,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-12">Persona a Cargo  Impresora</label>
+        <label class="col-sm-12"> Cedula de Persona a Cargo  Impresora</label>
         <div class="col-sm-12">
             <input list="perimp" name="perimp" class="form-control" placeholder="Filtrar por cédula"
                 (change)="onPerImp($event)" [(ngModel)]="equipo.impa_cargo" autocomplete="off"
@@ -114,7 +125,7 @@
             <mat-form-field class="full-width">
                 <mat-label for="obs">Observaciones</mat-label>
                 <input matInput type="textarea" [(ngModel)]="equipo.observaciones"
-                    name="obs" id="obs"  required>
+                    name="obs" id="obs">
             </mat-form-field>
         </div>
     </div>

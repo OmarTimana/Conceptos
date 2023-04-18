@@ -37,6 +37,7 @@ export const crearEquipo = async (req, res) => {
 }
 
 export const updateEquipo = async (req, res) => {
+    console.log(req.body);
     //se busca el equipo y se actualiza cualquier campo
     const eqpa=await equipo.findOne({_id:req.body._id}).populate('a_cargo').populate('impa_cargo')
     let a_cargo=eqpa.a_cargo
@@ -50,18 +51,19 @@ export const updateEquipo = async (req, res) => {
             return res.status(300).json({message:'Persona a Cargo no encontrado'})
         }
     }
+    req.body.fabricante=req.body.procesador.toString().toUpperCase()
+    req.body.referencia=req.body.procesador.toString().toUpperCase()
+    req.body.disco_duro=req.body.procesador.toString().toUpperCase()
     await equipo.findByIdAndUpdate(req.body._id, {
         fabricante: req.body.fabricante,
         referencia: req.body.referencia,
-        disco_duro: req.body.disco_duro,
+        disco_duro: req.body.disco_duro + 'GB',
         ram: req.body.ram,
         procesador: req.body.procesador,
         a_cargo: a_cargo._id,
         observaciones:req.body.observaciones
-    },
-    { new: true })
-    if (req.body.impa_cargo && req.body.impa_cargo.length>0) {
-        console.log("cambia impa_cargo");
+    })
+    if (req.body.impa_cargo && req.body.impa_cargo.length>0 && req.body.impa_cargo!=impa_cargo) {
         const foundPers = await personaCargo.findOne({ ced: { $in: req.body.impa_cargo } })
         if (foundPers) {
             impa_cargo = foundPers._id
@@ -72,8 +74,7 @@ export const updateEquipo = async (req, res) => {
             impqr: req.body.impqr,
             impref: req.body.impref,
             impa_cargo: impa_cargo,
-        },
-        { new: true })
+        })
     }
     return res.status(201).json({ message: "Equipo actualizado" })
 }
@@ -81,8 +82,7 @@ export const updateEquipo = async (req, res) => {
 export const removeEquipo = async (req, res) => {
     try {
         //Se busca el equipo y se lo elimina
-        const eqp = await equipo.findByIdAndDelete(req.params.id);
-        console.log("equipo borrado")
+        await equipo.findByIdAndDelete(req.params.id);
         return res.status(200).json(true)
     }
     catch (error) {

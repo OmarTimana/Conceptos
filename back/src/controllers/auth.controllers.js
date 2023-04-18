@@ -298,6 +298,7 @@ export const registrarUsuario = async (req, res) => {
     //se envía el nombre del rol y el estatus 200
     res.status(200).json({ roles: savedUser.roles[0].toJSON().name })
 }
+
 export const crearDocumento= async (req,res) => {
     const { fecha,para,de,asunto,hallazgos,notas,recomendaciones,firmaSop,firmaIIT } = req.body;
     //se crea un nuevo usuario

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
@@ -7,11 +6,6 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog} from '@angular/material/dialog';
 import { ModfabricanteComponent } from '../modfabricante/modfabricante.component';
 
-
-=======
-import { Component } from '@angular/core';
->>>>>>> a8befc95c894243f0b0c6640efeaabb64067e981
-
 @Component({
   selector: 'app-tabla',
   templateUrl: './tabla.component.html',
@@ -19,7 +13,6 @@ import { Component } from '@angular/core';
 })
 export class TablaComponent implements AfterViewInit {
 
-<<<<<<< HEAD
   constructor( public dialogEquipo: MatDialog ) { }
 
   openEquipo(): void {
@@ -34,9 +27,6 @@ export class TablaComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-=======
-  
->>>>>>> a8befc95c894243f0b0c6640efeaabb64067e981
   equipos=[]
 
   tabla={equipost:this.equipos}
