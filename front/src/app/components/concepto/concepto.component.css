@@ -2,11 +2,15 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 4%;
-
+    margin-top: 2%;
 }
 
 .contenedor div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
     width: 100%;
 }
 
@@ -35,10 +39,10 @@ h1{
 }
 
 /* pantalla media grande */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1090px) {
     .contenedor{
         width: 90%;
-    
+        margin-left: 2%
     }
 
     h1{
@@ -54,7 +58,21 @@ h1{
         font-size: 130%;
         font-weight: 600;
     }
+
+    .tabla{
+        margin-left: 5%;
+    }
+
     
 }
     
+    
+@media screen and (max-width: 350px) {
+    
+    .tabla{
+        margin-left: 15%;
+    }
+
+    
+}
     
