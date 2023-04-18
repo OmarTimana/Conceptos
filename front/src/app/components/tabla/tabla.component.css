@@ -30,6 +30,10 @@
         width: 120%;
     }
 
+    .botones{
+        margin-left: -2%;
+    }
+
     .contenedor .tabla{
         width: 90%;
     }

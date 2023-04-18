@@ -46,7 +46,12 @@ import { EditarconceptoComponent } from './components/editarconcepto/editarconce
   ],
   entryComponents: [
     DialogPassComponent,
+    ModequipoComponent,
     ModfabricanteComponent,
+    ModiscoComponent,
+    ModprocesadorComponent,
+    ModrefpcComponent,
+    RefimpComponent,
   ],
   imports: [
     BrowserModule,

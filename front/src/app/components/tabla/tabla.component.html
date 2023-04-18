@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!-- <button class="btn btn-primary m-1" data-toggle="modal" data-target="#modalEquipo"><b>Agregar equipo</b></button>
 <button class="btn btn-primary m-1" data-toggle="modal" data-target="#modalFab"><b>Agregar Fabricante</b></button>
 <button class="btn btn-primary m-1" data-toggle="modal" data-target="#modalDisco"><b>Agregar Disco Duro</b></button>
@@ -8,8 +7,6 @@
 
 <button mat-raised-button (click)="openDialog()">Pick one</button>
 
-=======
->>>>>>> a8befc95c894243f0b0c6640efeaabb64067e981
 <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -97,10 +94,11 @@
 <div class="contenedor">
     <div class="botones">
         <button mat-raised-button color="primary"  (click)="openEquipo()" >Agregar Equipo</button>
-        <button mat-raised-button color="primary" >Agregar Fabricante</button>
-        <button mat-raised-button color="primary" >Agregar Procesador</button>
-        <button mat-raised-button color="primary" >Agregar Referencia PC</button>
-        <button mat-raised-button color="primary" >Agregar Ref Impresora</button>
+        <button mat-raised-button color="primary" (click)="openFabricante()" >Agregar Fabricante</button>
+        <button mat-raised-button color="primary" (click)="openDisco()">Agregar Disco</button>
+        <button mat-raised-button color="primary" (click)="openProcesador()">Agregar Procesador</button>
+        <button mat-raised-button color="primary" (click)="openReferenciaPC()">Agregar Referencia PC</button>
+        <button mat-raised-button color="primary" (click)="openImpresora()">Agregar Ref Impresora</button>
     </div>
     
     <hr>

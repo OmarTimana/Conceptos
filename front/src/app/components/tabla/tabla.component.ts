@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
@@ -6,11 +5,13 @@ import {MatTableDataSource} from '@angular/material/table';
 //Material
 import {MatDialog} from '@angular/material/dialog';
 import { ModfabricanteComponent } from '../modfabricante/modfabricante.component';
+import { ModequipoComponent } from '../modequipo/modequipo.component';
+import { ModiscoComponent } from '../modisco/modisco.component';
+import { ModprocesadorComponent } from '../modprocesador/modprocesador.component';
+import { ModrefpcComponent } from '../modrefpc/modrefpc.component';
+import { RefimpComponent } from '../refimp/refimp.component';
 
 
-=======
-import { Component } from '@angular/core';
->>>>>>> a8befc95c894243f0b0c6640efeaabb64067e981
 
 @Component({
   selector: 'app-tabla',
@@ -19,11 +20,30 @@ import { Component } from '@angular/core';
 })
 export class TablaComponent implements AfterViewInit {
 
-<<<<<<< HEAD
   constructor( public dialogEquipo: MatDialog ) { }
 
   openEquipo(): void {
+    this.dialogEquipo.open( ModequipoComponent );
+  }
+
+  openFabricante(): void {
     this.dialogEquipo.open( ModfabricanteComponent );
+  }
+
+  openDisco(): void {
+    this.dialogEquipo.open( ModiscoComponent );
+  }
+
+  openProcesador(): void {
+    this.dialogEquipo.open( ModprocesadorComponent );
+  }
+
+  openReferenciaPC(): void {
+    this.dialogEquipo.open( ModrefpcComponent );
+  }
+
+  openImpresora(): void {
+    this.dialogEquipo.open( RefimpComponent );
   }
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
@@ -34,9 +54,6 @@ export class TablaComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-=======
-  
->>>>>>> a8befc95c894243f0b0c6640efeaabb64067e981
   equipos=[]
 
   tabla={equipost:this.equipos}
