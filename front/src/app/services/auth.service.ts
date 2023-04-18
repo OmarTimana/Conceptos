@@ -104,4 +104,8 @@ export class AuthService {
   createEquipo(equipo:any){
     return this.http.post<any>(this.URL+'/auth/crearequipo',equipo);
   }
+
+  createDocumento(documento:any){
+    return this.http.post<any>(this.URL+'/auth/registerdocument',documento)
+  }
 }

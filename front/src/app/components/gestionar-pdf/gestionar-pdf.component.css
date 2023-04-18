@@ -1,0 +1,9 @@
+.pdf-viewer{
+    width:600px;
+    height: 1000px;
+    display:block;
+}
+.page{
+    width: 100%;
+    height: auto;
+}

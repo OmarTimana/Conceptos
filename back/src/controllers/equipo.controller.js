@@ -58,7 +58,7 @@ export const updateEquipo = async (req, res) => {
         impref: req.body.impref,
         impa_cargo: eqpb.impa_cargo,
         a_cargo: eqpb.a_cargo,
-        observaciones:req.boy.observaciones
+        observaciones:req.body.observaciones
     },
         { new: true })
     return res.status(201).json({ message: "Equipo actualizado" })

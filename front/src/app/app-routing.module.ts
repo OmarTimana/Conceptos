@@ -7,6 +7,7 @@ import { CreardependenciaComponent } from './components/creardependencia/crearde
 import { PrincipalComponent } from './components/principal/principal.component';
 import { ConceptoComponent } from './components/concepto/concepto.component';
 import { EditarconceptoComponent } from './components/editarconcepto/editarconcepto.component';
+import { GestionarPdfComponent } from './components/gestionar-pdf/gestionar-pdf.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,10 @@ const routes: Routes = [
     path:'editconcept',
     component:EditarconceptoComponent,
     canActivate:[AuthGuard]
+  },
+  {
+    path:'home',
+    component:GestionarPdfComponent
   }
 ];
 

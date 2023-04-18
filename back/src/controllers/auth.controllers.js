@@ -334,6 +334,7 @@ export const crearDocumento= async (req,res) => {
 }
 export const editarDocumento=async(req,res)=>{
     
+    
 }
 
 //TOCA TRAER LAS FIRMAS
