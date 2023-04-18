@@ -20,30 +20,30 @@ import { RefimpComponent } from '../refimp/refimp.component';
 })
 export class TablaComponent implements AfterViewInit {
 
-  constructor( public dialogEquipo: MatDialog ) { }
+  constructor( public dialog: MatDialog ) { }
 
   openEquipo(): void {
-    this.dialogEquipo.open( ModequipoComponent );
+    this.dialog.open( ModequipoComponent );
   }
 
   openFabricante(): void {
-    this.dialogEquipo.open( ModfabricanteComponent );
+    this.dialog.open( ModfabricanteComponent );
   }
 
   openDisco(): void {
-    this.dialogEquipo.open( ModiscoComponent );
+    this.dialog.open( ModiscoComponent );
   }
 
   openProcesador(): void {
-    this.dialogEquipo.open( ModprocesadorComponent );
+    this.dialog.open( ModprocesadorComponent );
   }
 
   openReferenciaPC(): void {
-    this.dialogEquipo.open( ModrefpcComponent );
+    this.dialog.open( ModrefpcComponent );
   }
 
   openImpresora(): void {
-    this.dialogEquipo.open( RefimpComponent );
+    this.dialog.open( RefimpComponent );
   }
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
