@@ -16,7 +16,7 @@
         <label class="col-sm-12">Fabricante</label>
         <div class="col-sm-12">
             <input list="fabic" name="fabic" class="form-control" placeholder="Filtrar por nombres"
-                (change)="onFab($event)" [(ngModel)]="equipo.fabricante"
+                (change)="onFab($event)" [(ngModel)]="equipo.fabricante" autocomplete="off"
             >
             <datalist id="fabic">
                 <option *ngFor="let f of fabricantes" value="{{f.name}}">
@@ -29,7 +29,7 @@
         <label class="col-sm-12">Referencia</label>
         <div class="col-sm-12">
             <input list="ref" name="ref" class="form-control" placeholder="Filtrar por nombres"
-                (change)="onRef($event)" [(ngModel)]="equipo.referencia"
+                (change)="onRef($event)" [(ngModel)]="equipo.referencia" autocomplete="off"
             >
             <datalist id="ref">
                 <option *ngFor="let r of referencias" value="{{r.name}}">
@@ -42,7 +42,7 @@
         <label class="col-sm-12">Disco duro</label>
         <div class="col-sm-12">
             <input list="disk" name="disk" class="form-control" placeholder="Filtrar por nombres"
-                (change)="onDisk($event)" [(ngModel)]="equipo.disco_duro"
+                (change)="onDisk($event)" [(ngModel)]="equipo.disco_duro" autocomplete="off"
             >
             <datalist id="disk">
                 <option *ngFor="let d of disks" value="{{d.name}}">
@@ -59,7 +59,7 @@
         <label class="col-sm-12">Procesador</label>
         <div class="col-sm-12">
             <input list="proc" name="proc" class="form-control" placeholder="Filtrar por nombres"
-                (change)="onProc($event)" [(ngModel)]="equipo.procesador"
+                (change)="onProc($event)" [(ngModel)]="equipo.procesador" autocomplete="off"
             >
             <datalist id="proc">
                 <option *ngFor="let p of procs" value="{{p.name}}">
@@ -72,7 +72,7 @@
         <label class="col-sm-12">Persona a Cargo</label>
         <div class="col-sm-12">
             <input list="person" name="person" class="form-control" placeholder="Filtrar por cédula"
-                (change)="onPer($event)" [(ngModel)]="equipo.a_cargo"
+                (change)="onPer($event)" [(ngModel)]="equipo.a_cargo" autocomplete="off"
             >
             <datalist id="person">
                 <option *ngFor="let per of people" value="{{per.ced}}">
@@ -89,7 +89,7 @@
         <label class="col-sm-12">Referencia impresora</label>
         <div class="col-sm-12">
             <input list="refimp" name="refimp" class="form-control" placeholder="Filtrar por referencia"
-                (change)="onRefImp($event)" [(ngModel)]="equipo.impref"
+                (change)="onRefImp($event)" [(ngModel)]="equipo.impref" autocomplete="off"
             >
             <datalist id="refimp">
                 <option *ngFor="let rimp of refimps" value="{{rimp.name}}">
@@ -102,7 +102,7 @@
         <label class="col-sm-12">Persona a Cargo  Impresora</label>
         <div class="col-sm-12">
             <input list="perimp" name="perimp" class="form-control" placeholder="Filtrar por cédula"
-                (change)="onPerImp($event)" [(ngModel)]="equipo.impa_cargo"
+                (change)="onPerImp($event)" [(ngModel)]="equipo.impa_cargo" autocomplete="off"
             >
             <datalist id="perimp">
                 <option *ngFor="let pp of people" value="{{pp.ced}}">

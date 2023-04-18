@@ -163,7 +163,7 @@ export class ModequipoComponent {
     })
   }
 
-  public createEquipo() {
+  public createEquipo() { // falta verificar emm pues casi todo elemento nmms aleja porque >:/
     if((this.equipo.a_cargo.length>0 || this.equipo.impa_cargo.length>0) && this.equipo.qr.length>0){
       this.authService.createEquipo(this.equipo).subscribe(
         res=>{        

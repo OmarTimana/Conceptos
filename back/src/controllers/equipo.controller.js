@@ -1,4 +1,3 @@
-import { Types } from 'mongoose';
 import equipo from '../models/equipo' ;
 import personaCargo from '../models/personacargo'
 
