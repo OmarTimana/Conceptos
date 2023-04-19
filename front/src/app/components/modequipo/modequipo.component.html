@@ -166,7 +166,7 @@
     
             <mat-form-field appearance="fill">
                 <mat-label>Disco Duro</mat-label>
-                <input matInput type="tex" list="disk" name="disk" class="form-control" placeholder="Filtrar por nombres" (change)="onDisk($event)" [(ngModel)]="equipo.discoduro" required>
+                <input matInput type="tex" list="disk" name="disk" class="form-control" placeholder="Filtrar por nombres" (change)="onDisk($event)" [(ngModel)]="equipo.disco_duro" required>
                 <datalist id="disk" required>
                     <option *ngFor="let d of disks" value="{{d.name}}">
                         {{d.name}}
