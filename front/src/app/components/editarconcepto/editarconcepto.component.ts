@@ -88,4 +88,44 @@ export class EditarconceptoComponent {
   'percargoimp','Observaciones','isEdit']
   dataSource:any=equipos;
   columnsSchema:any=COLUMNS_SCHEMA;
+
+  showtabla=false;
+  showdocumento=false;
+
+  
+  documento={
+    date:'',
+    para:'',
+    de:'',
+    asunto:'',
+    hallazgos:'',
+    notas:'',
+    recomendaciones:'',
+    firmaSop:false,
+    firmaIIT:false
+  }
+
+  public cargarDocumento(){
+    if(!this.showdocumento){
+      this.showdocumento=true
+      this.showtabla=false
+    }
+    else if(this.showdocumento)
+      {
+        this.showdocumento=false
+      }
+  }
+  public cargarTabla(){
+    if(!this.showtabla)
+      {this.showtabla=true
+      this.showdocumento=false}
+    else if(this.showtabla)
+    {
+      this.showtabla=false
+    }
+  }
+  
+  public editDocumento(){
+
+  }
 }

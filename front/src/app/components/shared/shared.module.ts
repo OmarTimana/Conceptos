@@ -9,15 +9,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
-
-
-
 
 @NgModule({
   declarations: [
@@ -38,7 +35,7 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonToggleModule,
     MatPaginatorModule,
     MatTableModule,
-    
+    MatDialogModule
   ],
   exports: [
     CommonModule,
@@ -55,6 +52,12 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonToggleModule,
     MatPaginatorModule,
     MatTableModule,
+  ],
+  providers:[
+    {
+      provide:MatDialogRef,
+      useValue:{}
+    }
   ]
 })
 export class SharedModule { }

@@ -24,3 +24,7 @@ export const SaveFirma=async(req,res)=>{
         res.json('error XD')
     })
 }
+
+export const DownloadFirma=async(req,res)=>{
+
+}

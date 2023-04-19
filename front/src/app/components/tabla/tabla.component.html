@@ -1,4 +1,5 @@
-<!-- <button class="btn btn-primary m-1" data-toggle="modal" data-target="#modalEquipo"><b>Agregar equipo</b></button>
+<button class="btn btn-primary m-1" data-toggle="modal" data-target="#modalEquipo"><b>Agregar equipo</b></button>
+<!-- 
 <button class="btn btn-primary m-1" data-toggle="modal" data-target="#modalFab"><b>Agregar Fabricante</b></button>
 <button class="btn btn-primary m-1" data-toggle="modal" data-target="#modalDisco"><b>Agregar Disco Duro</b></button>
 <button class="btn btn-primary m-1" data-toggle="modal" data-target="#modalProcesador"><b>Agregar Procesador</b></button>
@@ -82,14 +83,14 @@
 
 
 
+-->
 <div class="modal p-5" id="modalEquipo" data-backdrop="static">
     <div class="modal-dialog me-20" role="document">
         <div class="modal-content">
             <app-modequipo></app-modequipo>
         </div>
     </div>
-<<<<<<< HEAD
-</div>  -->
+</div>  
 
 <div class="contenedor">
     <div class="botones">
@@ -105,29 +106,60 @@
 
     <div class="mat-elevation-z8 tabla">
             <table mat-table [dataSource]="dataSource">
-          
-              <!-- Position Column -->
-              <ng-container matColumnDef="position">
-                <th mat-header-cell *matHeaderCellDef> No. </th>
-                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+
+              <ng-container matColumnDef="QR">
+                <th mat-header-cell *matHeaderCellDef> QR </th>
+                <td mat-cell *matCellDef="let element"> {{element.QR}} </td>
               </ng-container>
           
-              <!-- Name Column -->
-              <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef> Name </th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              <ng-container matColumnDef="Fabricante">
+                <th mat-header-cell *matHeaderCellDef> Fabricante </th>
+                <td mat-cell *matCellDef="let element"> {{element.Fabricante}} </td>
               </ng-container>
           
-              <!-- Weight Column -->
-              <ng-container matColumnDef="weight">
-                <th mat-header-cell *matHeaderCellDef> Weight </th>
-                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+              <ng-container matColumnDef="Referencia">
+                <th mat-header-cell *matHeaderCellDef> Referencia </th>
+                <td mat-cell *matCellDef="let element"> {{element.Referencia}} </td>
               </ng-container>
-          
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="symbol">
-                <th mat-header-cell *matHeaderCellDef> Symbol </th>
-                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+
+              <ng-container matColumnDef="Disco">
+                <th mat-header-cell *matHeaderCellDef> Disco </th>
+                <td mat-cell *matCellDef="let element"> {{element.Disco}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Ram">
+                <th mat-header-cell *matHeaderCellDef> Ram </th>
+                <td mat-cell *matCellDef="let element"> {{element.Ram}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Procesador">
+                <th mat-header-cell *matHeaderCellDef> Procesador </th>
+                <td mat-cell *matCellDef="let element"> {{element.Procesador}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="ACargo">
+                <th mat-header-cell *matHeaderCellDef> ACargo </th>
+                <td mat-cell *matCellDef="let element"> {{element.ACargo}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="QRIMP">
+                <th mat-header-cell *matHeaderCellDef> QRIMP </th>
+                <td mat-cell *matCellDef="let element"> {{element.QRIMP}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="RefIMP">
+                <th mat-header-cell *matHeaderCellDef> RefIMP </th>
+                <td mat-cell *matCellDef="let element"> {{element.RefIMP}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="IMPACargo">
+                <th mat-header-cell *matHeaderCellDef> IMPACargo </th>
+                <td mat-cell *matCellDef="let element"> {{element.IMPACargo}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Observasiones">
+                <th mat-header-cell *matHeaderCellDef> Observasiones </th>
+                <td mat-cell *matCellDef="let element"> {{element.Observasiones}} </td>
               </ng-container>
           
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -140,6 +172,7 @@
             </mat-paginator>
     </div>
 
+    <hr class="pb-5">
 </div>
 
 

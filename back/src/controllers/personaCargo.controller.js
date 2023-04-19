@@ -19,3 +19,7 @@ export const registrarPersona=async(req,res)=>{
     res.status(200).json({savedPersona})
    
 }
+
+export const getAcargo=async(req,res)=>{
+  
+}

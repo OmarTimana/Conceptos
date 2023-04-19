@@ -16,7 +16,6 @@ const equipoSchema=new Schema({
     impa_cargo:{ ref:"personaCargo",
     type:Schema.Types.ObjectId},
     observaciones:{type:String}
-    
 },
 {
     //agregamos método para generar fecha de creación y de modificación
