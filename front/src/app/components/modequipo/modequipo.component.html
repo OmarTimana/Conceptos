@@ -162,7 +162,7 @@
                         {{r.name}}
                     </option>
                 </datalist>
-            </mat-form-field> 
+            </mat-form-field>
     
             <mat-form-field appearance="fill">
                 <mat-label>Disco Duro</mat-label>
@@ -180,7 +180,16 @@
                 <mat-label>RAM</mat-label>
                 <input matInput type="text" [(ngModel)]="equipo.ram"  name="name" id="name" class="form-control" required>
             </mat-form-field>
-    
+            <mat-form-field appearance="fill">
+                <mat-label>Tipo de RAM</mat-label>
+                <mat-select [value]="this.equipo.tram" [(ngModel)]="this.equipo.tram" name="tram" id="tram" required>
+                    <mat-option value="MB" >MB</mat-option>
+                    <mat-option value="GB">GB</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        
+        <div class="fila">
             <mat-form-field appearance="fill">
                 <mat-label>Procesador</mat-label>
                 <input matInput type="text" list="proc" name="proc" class="form-control" placeholder="Filtrar por nombres" (change)="onProc($event)" [(ngModel)]="equipo.procesador" required>
@@ -189,7 +198,7 @@
                         {{p.name}}
                     </option>
                 </datalist>
-            </mat-form-field> 
+            </mat-form-field>
         </div>
 
         <div class="fila">
@@ -253,9 +262,8 @@
             
 
         <div class="footer">
-            <button type="submit" mat-raised-button color="primary">Guardar</button>
-
-            <button mat-raised-button color="warn" [mat-dialog-close]="true">Cancelar</button>
+            <button type="submit" mat-raised-button color="primary" [mat-dialog-close]="equipo">Guardar</button>
+            <button mat-raised-button color="warn" (click)="this.dialogRef.close()">Cerrar</button>
         </div>
     </div>
 </form>

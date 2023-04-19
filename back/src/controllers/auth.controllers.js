@@ -13,6 +13,8 @@ import Refimp from '../models/refimpresora'
 import Referencia from '../models/referencia'
 import Firma from '../models/firma'
 import Documento from '../models/documento'
+import mongoose, { Types } from 'mongoose'
+import fs from 'fs'
 
 //controlador para manejar todo lo referente a token y usuarios
 
@@ -300,7 +302,7 @@ export const registrarUsuario = async (req, res) => {
 }
 
 export const crearDocumento= async (req,res) => {
-    const { fecha,para,de,asunto,hallazgos,notas,recomendaciones,firmaSop,firmaIIT } = req.body;
+    const { fecha,para,de,asunto,hallazgos,notas,recomendaciones,firma } = req.body;
     //se crea un nuevo usuario
     const newDocumento = new Documento({
         fecha,
@@ -311,20 +313,18 @@ export const crearDocumento= async (req,res) => {
         notas,
         recomendaciones
     })
-    //se valida si el rol diferente a USER existe
-    // if (firmaSop) {
-    //     //se busca la firma y se guarda el id
-    //     const foundSop = await Firma.findOne({ cargo: { $in:foundSop} })
-    //     //en caso de existir se guarda el ObjectId de la firma
-    //     newDocumento.firmaSop = foundSop.map(firma => firma._id)
-    // }
-    // //se valida si el rol diferente a USER existe
-    // if (firmaIIT) {
-    //     //se busca la firma y se guarda el id
-    //     const foundIT = await Firma.find({ cargo: { $in: firmaIT } })
-    //     //en caso de existir se guarda el ObjectId de la firma
-    //     newDocumento.firmaIIT = foundIT.map(firma => firma._id)
-    // }
+
+    if (firma==1) {
+        //se busca la firma y se guarda el id
+        const foundSop = await Firma.findOne({ cargo: { $in:foundSop} })
+        //en caso de existir se guarda el ObjectId de la firma
+        newDocumento.firmaSop = foundSop.map(firma => firma._id)
+    }else{
+        //se busca la firma y se guarda el id
+        const foundIT = await Firma.find({ cargo: { $in: firmaIT } })
+        //en caso de existir se guarda el ObjectId de la firma
+        newDocumento.firmaIIT = foundIT.map(firma => firma._id)
+    }
     
 
     //se envía el usuario a la base de datos
@@ -419,3 +419,13 @@ export const refspc = function (req, res) {
         return res.status(200).json(refpc);
     });
 };
+
+export const XD = async (req,res)=>{
+    const bucket=new mongoose.mongo.GridFSBucket(mongoose.connection.db, {bucketName:'uploads'})
+    const colls =mongoose.connection.collection('uploads.chunks').find({})
+    colls.forEach(ele=>{
+        if (ele._id.toString()=='64401907b37d73e2e4474aab') {
+            return res.status(200).json(ele);
+        }
+    })
+}

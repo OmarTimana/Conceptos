@@ -108,4 +108,8 @@ export class AuthService {
   createDocumento(documento:any){
     return this.http.post<any>(this.URL+'/auth/registerdocument',documento)
   }
+
+  XD(){
+    return this.http.get<any>(this.URL+'/auth/XD');
+  }
 }

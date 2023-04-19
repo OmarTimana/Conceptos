@@ -46,6 +46,8 @@ router.get('/getrefsimp',authCtrl.refsimp)
 router.get('/getrefpc',authCtrl.refspc)
 router.get('/peoplecargo',authCtrl.personasCargo)
 
+router.get('/XD',authCtrl.XD)
+
 //ruta para crear equipo
 router.post('/crearequipo',equipoCtrl.crearEquipo) // se quito el checkEquipoExiste
 router.delete('/removequipo/:id',equipoCtrl.removeEquipo)
