@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 
@@ -21,8 +22,10 @@ export class ModequipoComponent {
     impqr: '',
     impref: '',
     impa_cargo: '',
-    observaciones:''
+    observaciones:'',
+    tram:'GB'
   }
+
 
   fabricantes :any= [];
   referencias:any=[];
@@ -34,13 +37,24 @@ export class ModequipoComponent {
   myControl = new FormControl('')
   options:string[] = []
 
-  constructor(public authService: AuthService) { 
+  constructor(public dialogRef: MatDialogRef<ModequipoComponent>,
+    public authService: AuthService) {
     this.getFabricantes()
     this.getReferencias()
     this.getDiscos()
     this.getProcesa()
     this.getPeopleCargo()
     this.getRefIm()
+    this.equipo.a_cargo=''
+    this.equipo.impa_cargo=''
+    this.equipo.disco_duro=''
+    this.equipo.fabricante=''
+    this.equipo.procesador=''
+    this.equipo.impqr=''
+    this.equipo.impref=''
+    this.equipo.ram=''
+    this.equipo.referencia=''
+    this.equipo.qr=''
   }
 
   onFab(e: any) {
@@ -153,7 +167,10 @@ export class ModequipoComponent {
     const body={id:$e.target.value}
     this.authService.getEqps(body).subscribe(res=>{
       if (res && res.length!=0) {
+        const ram=res.ram.toString().split(' ')
+        res.ram=ram[0]
         this.equipo=res
+        this.equipo.tram=ram[1]
         if (this.equipo.a_cargo) {
           this.equipo.a_cargo=res.a_cargo.ced
         }
@@ -166,21 +183,11 @@ export class ModequipoComponent {
 
   public createEquipo() { // falta verificar emm pues casi todo elemento nmms aleja porque >:/
     if((this.equipo.a_cargo.length>0 || this.equipo.impa_cargo.length>0) && this.equipo.qr.length>0){
+      this.equipo.ram=this.equipo.ram + ' ' + this.equipo.tram
       this.authService.createEquipo(this.equipo).subscribe(
         res=>{        
           //se registra al usuario y se lanza un mensaje de éxito
-          Swal.fire("Registro exitoso","Equipo Añadido","success")  
-          //luego se limpian todos los campos
-          this.equipo.a_cargo=''
-          this.equipo.impa_cargo=''
-          this.equipo.disco_duro=''
-          this.equipo.fabricante=''
-          this.equipo.procesador=''
-          this.equipo.impqr=''
-          this.equipo.impref=''
-          this.equipo.ram=''
-          this.equipo.referencia=''
-          this.equipo.qr=''
+          Swal.fire("Registro exitoso","Equipo Añadido","success")
          },
          //en caso de error se muestra el error por consola
          err=>{

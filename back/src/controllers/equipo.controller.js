@@ -37,7 +37,6 @@ export const crearEquipo = async (req, res) => {
 }
 
 export const updateEquipo = async (req, res) => {
-    console.log(req.body);
     //se busca el equipo y se actualiza cualquier campo
     const eqpa=await equipo.findOne({_id:req.body._id}).populate('a_cargo').populate('impa_cargo')
     let a_cargo=eqpa.a_cargo
@@ -51,13 +50,15 @@ export const updateEquipo = async (req, res) => {
             return res.status(300).json({message:'Persona a Cargo no encontrado'})
         }
     }
-    req.body.fabricante=req.body.procesador.toString().toUpperCase()
-    req.body.referencia=req.body.procesador.toString().toUpperCase()
-    req.body.disco_duro=req.body.procesador.toString().toUpperCase()
+    req.body.fabricante=req.body.fabricante.toString().toUpperCase()
+    req.body.referencia=req.body.referencia.toString().toUpperCase()
+    req.body.disco_duro=req.body.disco_duro.toString().toUpperCase()
+    req.body.procesador=req.body.procesador.toString().toUpperCase()
+    req.body.impref=req.body.impref.toString().toUpperCase()
     await equipo.findByIdAndUpdate(req.body._id, {
         fabricante: req.body.fabricante,
         referencia: req.body.referencia,
-        disco_duro: req.body.disco_duro + 'GB',
+        disco_duro: req.body.disco_duro,
         ram: req.body.ram,
         procesador: req.body.procesador,
         a_cargo: a_cargo._id,

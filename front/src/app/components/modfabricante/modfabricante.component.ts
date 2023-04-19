@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 
@@ -11,7 +12,8 @@ export class ModfabricanteComponent {
 
   fab={name:''}
 
-  constructor(public authService:AuthService){ }
+  constructor(public dialogRef: MatDialogRef<ModfabricanteComponent>,
+    public authService:AuthService){ }
 
   public createFab(){
     if(this.fab.name.length>0){
@@ -30,6 +32,4 @@ export class ModfabricanteComponent {
     }
     Swal.fire("Error","Introduzca datos válidos","error")
   }
-
-
 }

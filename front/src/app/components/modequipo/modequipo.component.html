@@ -1,7 +1,7 @@
 <form class="from-group" id="formGeneral" name="formGeneral" (submit)="createEquipo()">
 
     <div class="modal-factores">
-        <h3>Registro de Equipo</h3>
+        <h3 mat-dialog-title>Registro de Equipo</h3>
     </div>
 
     <div class="form-group">
@@ -53,18 +53,19 @@
     </div>
     <div class="form-group">
         <label for="ram">RAM</label>
-        <input type="number" [(ngModel)]="equipo.ram"  name="ram" id="ram" class="form-control" required>
-    </div>
-    <div>
-        <mat-form-field appearance="fill">
-            <mat-label>Select an option</mat-label>
-            <mat-select>
-              <mat-option>None</mat-option>
-              <mat-option value="option1">Option 1</mat-option>
-              <mat-option value="option2">Option 2</mat-option>
-              <mat-option value="option3">Option 3</mat-option>
-            </mat-select>
-        </mat-form-field>
+        <div class="row">
+            <div class="col-6">
+                <input type="number" [(ngModel)]="equipo.ram"  name="ram" id="ram" class="form-control" required>
+            </div>
+            <div class="col-6">
+                <mat-form-field appearance="fill">
+                    <mat-select [value]="this.equipo.tram" [(ngModel)]="this.equipo.tram" name="tram" id="tram">
+                      <mat-option value="MB" >MB</mat-option>
+                      <mat-option value="GB">GB</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
     </div>
     <div class="form-group">
         <label class="col-sm-12">Procesador</label>
@@ -121,22 +122,22 @@
                 </option>
             </datalist>
         </div>
-        <div class="form-group">
-            <mat-form-field class="full-width">
-                <mat-label for="obs">Observaciones</mat-label>
-                <input matInput type="textarea" [(ngModel)]="equipo.observaciones"
-                    name="obs" id="obs">
-            </mat-form-field>
-        </div>
+    </div>
+    <div class="form-group">
+        <mat-form-field class="full-width">
+            <mat-label for="obs">Observaciones</mat-label>
+            <input matInput type="textarea" [(ngModel)]="equipo.observaciones"
+                name="obs" id="obs">
+        </mat-form-field>
     </div>
     
 
     <div class="row">
         <div class="form-group col">
-            <button type="submit" class="btn btn-primary  ">Guardar</button>
+            <button type="submit" class="btn btn-primary" [mat-dialog-close]="equipo">Guardar</button>
         </div>
         <div class="form-group col">
-            <button type="buttton" class="btn btn-cancel" data-dismiss="modal">Cerrar</button>
+            <button type="buttton" class="btn btn-cancel" (click)="this.dialogRef.close()">Cerrar</button>
         </div>
     </div>   
 </form>

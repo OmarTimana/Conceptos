@@ -16,21 +16,23 @@
         </div> 
     </div>   
 </form> -->
-
-<form class="contenedor" id="formGeneral" name="formGeneral" (submit)="createFab()">
-    <div class="contenido">
-        <h2>Registro de Fabricante</h2>
-        <mat-divider></mat-divider>
-            
-        <mat-form-field appearance="fill">
-            <mat-label>Nombre</mat-label>
-            <input matInput type="text" [(ngModel)]="fab.name"  name="name" id="name" required>
-        </mat-form-field>
-
-        <div class="footer">
-            <button type="submit" mat-raised-button color="primary">Guardar</button>
-
-            <button mat-raised-button color="warn" [mat-dialog-close]="true">Cancelar</button>
+<mat-dialog-content class="mat-typography">
+    <form class="contenedor" id="formGeneral" name="formGeneral" (submit)="createFab()">
+        <div class="contenido">
+            <h2>Registro de Fabricante</h2>
+            <mat-divider></mat-divider>
+                
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" [(ngModel)]="fab.name"  name="name" id="name" required>
+            </mat-form-field>
+    
+            <div class="footer">
+                <button type="submit" mat-raised-button color="primary"
+                [mat-dialog-close]="fab.name">Guardar</button>
+    
+                <button mat-raised-button color="warn" (click)="this.dialogRef.close()">Cancelar</button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
+</mat-dialog-content>
