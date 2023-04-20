@@ -28,10 +28,8 @@
             </mat-form-field>
     
             <div class="footer">
-                <button type="submit" mat-raised-button color="primary"
-                [mat-dialog-close]="fab.name">Guardar</button>
-    
-                <button mat-raised-button color="warn" (click)="this.dialogRef.close()">Cancelar</button>
+                <button type="submit" mat-raised-button color="primary">Guardar</button>
+                <button type="button" mat-raised-button color="warn" (click)="this.dialogRef.close()">Cerrar</button>
             </div>
         </div>
     </form>

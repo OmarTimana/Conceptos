@@ -56,11 +56,7 @@ export class ModequipoComponent {
     this.equipo.referencia=''
     this.equipo.qr=''
   }
-
-  onFab(e: any) {
-    this.equipo.fabricante = e.target.value;
-  }
-
+  
   getFabricantes() {
     this.authService.getFabs().subscribe(
       res => {
@@ -73,11 +69,7 @@ export class ModequipoComponent {
       err => console.log(err)
     );
   };
-
-  onRef(e: any) {
-    this.equipo.referencia = e.target.value;
-  }
-
+  
   getReferencias() {
     this.authService.getRefpc().subscribe(
       res => {
@@ -90,11 +82,7 @@ export class ModequipoComponent {
       err => console.log(err)
     );
   };
-
-  onDisk(e: any) {
-    this.equipo.disco_duro = e.target.value;
-  }
-
+  
   getDiscos() {
     this.authService.getDisks().subscribe(
       res => {
@@ -107,41 +95,92 @@ export class ModequipoComponent {
       err => console.log(err)
     );
   };
-
-  onProc(e: any) {
-    this.equipo.procesador= e.target.value;
-  }
-
-  getProcesa() {
-    this.authService.getProcesadores().subscribe(
-      res => {
-
-        for (let i of Object.values(res)) {
-          this.procs.push(i);
-        }
-
-      },
-      err => console.log(err)
-    );
-  };
-
-  onPer(e: any) {
-    this.equipo.a_cargo= e.target.value;
-  }
-
+    
+    getProcesa() {
+      this.authService.getProcesadores().subscribe(
+        res => {
+          for (let i of Object.values(res)) {
+            this.procs.push(i);
+          }
+        },
+        err => console.log(err)
+      );
+    };
+  
   getPeopleCargo() {
     this.authService.getPeopleCargo().subscribe(
       res => {
-
         for (let i of Object.values(res)) {
           this.people.push(i);
         }
-
       },
       err => console.log(err)
     );
   };
+    
+  getRefIm() {
+  this.authService.getRefimp().subscribe(
+    res => {
 
+      for (let i of Object.values(res)) {
+        this.refimps.push(i);
+      }
+
+    },
+    err => console.log(err)
+    );
+  };
+    
+  onFab(e: any) {
+    let val=''
+    this.fabricantes.forEach((ele: any)=>{
+      if (ele.name===e.target.value) {
+        val=ele.name
+      }
+    })
+    this.equipo.fabricante = val
+  }
+
+  onRef(e: any) {
+    let val=''
+    this.referencias.forEach((ele: any)=>{
+      if (ele.name===e.target.value) {
+        val=ele.name
+      }
+    })
+    this.equipo.referencia = val
+  }
+
+  onDisk(e: any) {
+    let val=''
+    this.disks.forEach((ele: any)=>{
+      if (ele.name===e.target.value) {
+        val=ele.name
+      }
+    })
+    this.equipo.disco_duro = val
+  }
+  
+  onProc(e: any) {
+    let val=''
+    this.procs.forEach((ele: any)=>{
+      if (ele.name===e.target.value) {
+        val=ele.name
+      }
+    })
+    this.equipo.procesador= val
+  }
+    
+  onPer(e: any) {
+    let val=''
+    this.people.forEach((ele: any)=>{
+      if (ele.name===e.target.value || ele.ced===e.target.value) {
+          val=ele.ced
+        }
+    })
+    this.equipo.a_cargo= val
+  }
+    
   onPerImp(e: any) {
     this.equipo.impa_cargo= e.target.value;
   }
@@ -149,19 +188,6 @@ export class ModequipoComponent {
   onRefImp(e: any) {
     this.equipo.impref= e.target.value;
   }
-
-  getRefIm() {
-    this.authService.getRefimp().subscribe(
-      res => {
-
-        for (let i of Object.values(res)) {
-          this.refimps.push(i);
-        }
-
-      },
-      err => console.log(err)
-    );
-  };
 
   Complete($e:any){
     const body={id:$e.target.value}
@@ -188,6 +214,7 @@ export class ModequipoComponent {
         res=>{        
           //se registra al usuario y se lanza un mensaje de éxito
           Swal.fire("Registro exitoso","Equipo Añadido","success")
+          this.dialogRef.close(this.equipo)
          },
          //en caso de error se muestra el error por consola
          err=>{
@@ -196,12 +223,8 @@ export class ModequipoComponent {
           }else{
             Swal.fire("Error","El equipo ya existe","error")
           }
-         }
+        }
       )
     }
-  }
-
-  cliko(){
-    this.equipo.fabricante="XD"
   }
 }

@@ -27,28 +27,28 @@ export class TablaComponent implements AfterViewInit {
       width:'70%'
     });
     d.afterClosed().subscribe(res=>{
-      UNITS_DATA.push({
-        QR: res.qr,
-        Fabricante: res.fabricante,
-        Referencia: res.referencia,
-        Disco: res.disco_duro,
-        Ram: res.ram,
-        Procesador: res.procesador,
-        ACargo: res.a_cargo,
-        QRIMP: res.impqr,
-        RefIMP: res.impref,
-        IMPACargo: res.impa_cargo,
-        Observasiones: res.observaciones,
-      })
-      this.dataSource = new MatTableDataSource<Unit>(UNITS_DATA);
+      if (res) {
+        UNITS_DATA.push({
+          QR: res.qr,
+          Fabricante: res.fabricante,
+          Referencia: res.referencia,
+          Disco: res.disco_duro,
+          Ram: res.ram,
+          Procesador: res.procesador,
+          ACargo: res.a_cargo,
+          QRIMP: res.impqr,
+          RefIMP: res.impref,
+          IMPACargo: res.impa_cargo,
+          Observasiones: res.observaciones,
+        })
+        this.dataSource = new MatTableDataSource<Unit>(UNITS_DATA);
+        this.dataSource.paginator=this.paginator
+      }
     })
   }
 
   openFabricante(): void {
     const d=this.dialog.open( ModfabricanteComponent );
-    d.afterClosed().subscribe(res=>{
-      console.log(res);
-    })
   }
 
   openDisco(): void {
@@ -67,7 +67,7 @@ export class TablaComponent implements AfterViewInit {
     this.dialog.open( RefimpComponent );
   }
 
-  displayedColumns: string[] = ['QR','Fabricante','Referencia','Disco','Ram','Procesador','ACargo','QRIMP','RefIMP','IMPACargo','Observasiones'];
+  displayedColumns: string[] = ['QR','Fabricante','Referencia','Disco','Ram','Procesador','ACargo','QRIMP','RefIMP','IMPACargo','Observasiones','Acciones'];
   dataSource = new MatTableDataSource<Unit>(UNITS_DATA);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -95,7 +95,4 @@ export interface Unit {
   Observasiones:string;
 }
 
-const UNITS_DATA: Unit[] = [
-  {QR: 1, Fabricante: 'Hydrogen', Referencia: 'wea',Disco:'XD',Ram:'3',Procesador:'1',ACargo:123,
-  QRIMP:2,RefIMP:':v',IMPACargo:2,Observasiones:'chucha'},
-];
+const UNITS_DATA: Unit[] = [];

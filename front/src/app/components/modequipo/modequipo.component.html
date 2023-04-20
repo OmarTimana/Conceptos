@@ -138,14 +138,16 @@
         <div class="fila">
             <mat-form-field class="full-width">
                 <mat-label for="code">QR</mat-label>
-                <input matInput type="text" (change)="Complete($event)" [(ngModel)]="equipo.qr" name="code" id="code" placeholder="Ingrese el QR" required>
+                <input matInput type="text" (change)="Complete($event)" [(ngModel)]="equipo.qr" name="code" id="code"
+                    placeholder="Ingrese el QR" required autocomplete="on">
             </mat-form-field>
     
             <mat-form-field appearance="fill">
                 <mat-label>Fabricante</mat-label>
-                <input matInput type="text" list="menac" name="menac" class="form-control" placeholder="Filtrar por nombres"
-                    (change)="onFab($event)" [(ngModel)]="equipo.fabricante" required>
-                <datalist id="menac" required>
+                <input matInput type="text" list="menac" name="menac" class="form-control" 
+                    placeholder="Filtrar por nombres" (change)="onFab($event)" [(ngModel)]="equipo.fabricante" 
+                    required autocomplete="off">
+                <datalist id="menac">
                     <option *ngFor="let f of fabricantes" value="{{f.name}}">
                         {{f.name}}
                     </option>
@@ -156,8 +158,10 @@
         <div class="fila">
             <mat-form-field appearance="fill">
                 <mat-label>Referencia</mat-label>
-                <input matInput type="text" list="ref" name="ref" class="form-control" placeholder="Filtrar por nombres" (change)="onRef($event)" [(ngModel)]="equipo.referencia" required>
-                <datalist id="ref" required>
+                <input matInput type="text" list="ref" name="ref" class="form-control" 
+                    placeholder="Filtrar por nombres" (change)="onRef($event)" [(ngModel)]="equipo.referencia"
+                    required autocomplete="off">
+                <datalist id="ref">
                     <option *ngFor="let r of referencias" value="{{r.name}}">
                         {{r.name}}
                     </option>
@@ -166,8 +170,10 @@
     
             <mat-form-field appearance="fill">
                 <mat-label>Disco Duro</mat-label>
-                <input matInput type="tex" list="disk" name="disk" class="form-control" placeholder="Filtrar por nombres" (change)="onDisk($event)" [(ngModel)]="equipo.disco_duro" required>
-                <datalist id="disk" required>
+                <input matInput type="tex" list="disk" name="disk" class="form-control"
+                    placeholder="Filtrar por nombres" (change)="onDisk($event)" [(ngModel)]="equipo.disco_duro"
+                    required autocomplete="off">
+                <datalist id="disk">
                     <option *ngFor="let d of disks" value="{{d.name}}">
                         {{d.name}}
                     </option>
@@ -178,12 +184,13 @@
         <div class="fila">
             <mat-form-field appearance="fill">
                 <mat-label>RAM</mat-label>
-                <input matInput type="text" [(ngModel)]="equipo.ram"  name="name" id="name" class="form-control" required>
+                <input matInput type="number" [(ngModel)]="equipo.ram"  name="ram" id="ram" class="form-control"
+                    required autocomplete="off">
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Tipo de RAM</mat-label>
                 <mat-select [value]="this.equipo.tram" [(ngModel)]="this.equipo.tram" name="tram" id="tram" required>
-                    <mat-option value="MB" >MB</mat-option>
+                    <mat-option value="MB">MB</mat-option>
                     <mat-option value="GB">GB</mat-option>
                 </mat-select>
             </mat-form-field>
@@ -192,36 +199,41 @@
         <div class="fila">
             <mat-form-field appearance="fill">
                 <mat-label>Procesador</mat-label>
-                <input matInput type="text" list="proc" name="proc" class="form-control" placeholder="Filtrar por nombres" (change)="onProc($event)" [(ngModel)]="equipo.procesador" required>
-                <datalist id="proc" required>
+                <input matInput type="text" list="proc" name="proc" class="form-control"
+                    placeholder="Filtrar por nombres" (change)="onProc($event)" [(ngModel)]="equipo.procesador"
+                    required autocomplete="off">
+                <datalist id="proc">
                     <option *ngFor="let p of procs" value="{{p.name}}">
                         {{p.name}}
                     </option>
                 </datalist>
             </mat-form-field>
-        </div>
 
-        <div class="fila">
             <mat-form-field appearance="fill">
-                <mat-label>Persona a Cargo Equipo</mat-label>
-                <input matInput list="person" name="person" class="form-control" placeholder="Filtrar por cédula" (change)="onPer($event)" [(ngModel)]="equipo.a_cargo" required>
-                <datalist id="person" required>
+                <mat-label>CC Persona a Cargo Equipo</mat-label>
+                <input matInput list="person" name="person" class="form-control" placeholder="Filtrar por cédula"
+                    (change)="onPer($event)" [(ngModel)]="equipo.a_cargo" required autocomplete="off">
+                <datalist id="person">
                     <option *ngFor="let per of people" value="{{per.ced}}">
                         {{per.ced}}-{{per.name}}
                     </option>
                 </datalist>
             </mat-form-field> 
+        </div>
 
+        <div class="fila">
             <mat-form-field appearance="fill">
                 <mat-label>QR Impresora</mat-label>
-                <input matInput type="text" [(ngModel)]="equipo.impqr"  name="name" id="name" class="form-control">
+                <input matInput type="text" [(ngModel)]="equipo.impqr" name="qri" id="qri" class="form-control"
+                    autocomplete="off">
             </mat-form-field> 
         </div>
 
         <div class="fila">
             <mat-form-field appearance="fill">
                 <mat-label>Referencia Impresora</mat-label>
-                <input matInput list="refimp" name="refimp" class="form-control" placeholder="Filtrar por referencia" (change)="onRefImp($event)" [(ngModel)]="equipo.impref">
+                <input matInput list="refimp" name="refimp" class="form-control" placeholder="Filtrar por referencia"
+                    (change)="onRefImp($event)" [(ngModel)]="equipo.impref" autocomplete="off">
             <datalist id="refimp">
                 <option *ngFor="let rimp of refimps" value="{{rimp.name}}">
                     {{rimp.name}}
@@ -230,8 +242,9 @@
             </mat-form-field> 
 
             <mat-form-field appearance="fill">
-                <mat-label>Persona a Cargo Impresora</mat-label>
-                <input matInput list="perimp" name="perimp" class="form-control" placeholder="Filtrar por cédula" (change)="onPerImp($event)" [(ngModel)]="equipo.impa_cargo">
+                <mat-label>CC Persona a Cargo Impresora</mat-label>
+                <input matInput list="perimp" name="perimp" class="form-control" placeholder="Filtrar por cédula"
+                    (change)="onPerImp($event)" [(ngModel)]="equipo.impa_cargo" autocomplete="off">
                 <datalist id="perimp">
                     <option *ngFor="let pp of people" value="{{pp.ced}}">
                         {{pp.ced}}-{{pp.name}}
@@ -262,7 +275,7 @@
             
 
         <div class="footer">
-            <button type="submit" mat-raised-button color="primary" [mat-dialog-close]="equipo">Guardar</button>
+            <button type="submit" mat-raised-button color="primary">Guardar</button>
             <button mat-raised-button color="warn" (click)="this.dialogRef.close()">Cerrar</button>
         </div>
     </div>

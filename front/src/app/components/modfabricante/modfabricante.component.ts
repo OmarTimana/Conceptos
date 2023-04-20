@@ -13,7 +13,9 @@ export class ModfabricanteComponent {
   fab={name:''}
 
   constructor(public dialogRef: MatDialogRef<ModfabricanteComponent>,
-    public authService:AuthService){ }
+    public authService:AuthService){ 
+      this.fab.name=''
+    }
 
   public createFab(){
     if(this.fab.name.length>0){
@@ -21,10 +23,8 @@ export class ModfabricanteComponent {
       .subscribe(
         res=>{        
          //se registra al usuario y se lanza un mensaje de éxito
-         Swal.fire("Registro exitoso","El fabricante fue registrado","success")  
-         //luego se limpian todos los campos
-         this.fab.name=''
-  
+         Swal.fire("Registro exitoso","El fabricante fue registrado","success")
+         this.dialogRef.close()
         },
         //en caso de error se muestra el error por consola
         err=>Swal.fire("Error","El fabricante ya existe","error")

@@ -40,12 +40,12 @@
             
         <mat-form-field appearance="fill">
             <mat-label>Marca</mat-label>
-            <input matInput type="text" [(ngModel)]="disco.marca" name="name" id="name" required>
+            <input matInput type="text" [(ngModel)]="disco.marca" name="mark" id="mark" required>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Capacidad</mat-label>
-            <input matInput type="text" [(ngModel)]="disco.capacidad"  name="name" id="name" required>
+            <input matInput type="text" [(ngModel)]="disco.capacidad"  name="cap" id="cap" required>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
@@ -59,8 +59,7 @@
 
         <div class="footer">
             <button type="submit" mat-raised-button color="primary">Guardar</button>
-
-            <button mat-raised-button color="warn" [mat-dialog-close]="true">Cancelar</button>
+            <button type="button" mat-raised-button color="warn" (click)="this.dialogRef.close()">Cerrar</button>
         </div>
     </div>
 </form>

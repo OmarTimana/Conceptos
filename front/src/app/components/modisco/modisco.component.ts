@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 @Component({
@@ -18,10 +19,21 @@ export class ModiscoComponent {
 
   auxdisco={name:''}
 
-  constructor(public authService:AuthService){ }
+  constructor(public authService:AuthService,
+    public dialogRef: MatDialogRef<ModiscoComponent>){ 
+    //luego se limpian todos los campos
+    this.disco.marca=''
+    this.disco.capacidad=''
+    this.disco.tipo=''
+    this.cadena=''
+    this.auxdisco.name=''
+
+  }
 
   onTipo(e: any) {
-    this.disco.tipo=e.target.value;};
+    this.disco.tipo=e.target.value;
+  };
+
   public createDisco(){
     this.cadena=this.disco.marca+" "+this.disco.capacidad+" "+this.disco.tipo;
 
@@ -33,13 +45,7 @@ export class ModiscoComponent {
         res=>{        
          //se registra al usuario y se lanza un mensaje de éxito
          Swal.fire("Registro exitoso","El disco fue registrado","success")  
-         //luego se limpian todos los campos
-         this.disco.marca=''
-         this.disco.capacidad=''
-         this.disco.tipo=''
-         this.cadena=''
-         this.auxdisco.name=''
-  
+         this.dialogRef.close()
         },
         //en caso de error se muestra el error por consola
         err=>Swal.fire("Error","El disco ya existe","error")
