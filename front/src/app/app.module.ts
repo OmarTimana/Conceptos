@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
-import { MatTableModule } from '@angular/material/table'  
+import { MatTableModule } from '@angular/material/table' 
+import {PdfViewerModule} from 'ng2-pdf-viewer'
 
 import { CrearusuariosComponent } from './components/crearusuarios/crearusuarios.component';
 import { CreardependenciaComponent } from './components/creardependencia/creardependencia.component';
@@ -24,6 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './components/shared/shared.module';
 import { DialogPassComponent } from './components/dialog-pass/dialog-pass.component';
 import { EditarconceptoComponent } from './components/editarconcepto/editarconcepto.component';
+import { GestionarPdfComponent } from './components/gestionar-pdf/gestionar-pdf.component';
+import { CrearPdfComponent } from './components/crear-pdf/crear-pdf.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,9 @@ import { EditarconceptoComponent } from './components/editarconcepto/editarconce
     ModrefpcComponent,
     ModequipoComponent,
     DialogPassComponent,
-    EditarconceptoComponent
+    EditarconceptoComponent,
+    GestionarPdfComponent,
+    CrearPdfComponent
   ],
   entryComponents: [
     DialogPassComponent,
@@ -62,7 +67,8 @@ import { EditarconceptoComponent } from './components/editarconcepto/editarconce
     HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
-    MatTableModule
+    MatTableModule,
+    PdfViewerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

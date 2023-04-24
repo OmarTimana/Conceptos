@@ -131,18 +131,20 @@ export const checkEquipoExist=(req,res,next)=>{
     getEquipos().then(function (resp) {
         //compara cada uno de los equipos con el enviado para ver si encajan
         let equipo = resp.filter((item) => item.toJSON().qr == req.body.qr);
+        let impresora=resp.filter((item)=>item.toJSON().impqr==req.body.impqr);
     
         //si el equipo ya existe lanza el mensaje
-        if (equipo.length>0) {
+        if (equipo.length>0 ||impresora.length>0) {
             return res.status(200).json({
                 message: "El equipo ya existe" + equipo
             })
             
-        } else {
+        } 
+       
+        else {
              //si el equipo no existe continua con lo siguiente
              next();
         }
-        
     }).catch(function (err) {
         return res.status(400).json({
             //en caso de error envía un mensaje

@@ -1,135 +1,3 @@
-<!-- <form class="from-group" id="formGeneral" name="formGeneral" (submit)="createEquipo()">
-
-    <div class="modal-factores">
-        <h3>Registro de Equipo</h3>
-    </div>
-
-    <div class="form-group">
-        <mat-form-field class="full-width">
-            <mat-label for="code">QR</mat-label>
-            <input matInput type="text" (change)="Complete($event)" [(ngModel)]="equipo.qr"
-                name="code" id="code" placeholder="Ingrese el QR" required
-            >
-        </mat-form-field>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-12">Fabricante</label>
-        <div class="col-sm-12">
-            <input list="menac" name="menac" class="form-control" placeholder="Filtrar por nombres"
-                (change)="onFab($event)" [(ngModel)]="equipo.fabricante"
-            >
-            <datalist id="menac">
-                <option *ngFor="let f of fabricantes" value="{{f.name}}">
-                    {{f.name}}
-                </option>
-            </datalist>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-12">Referencia</label>
-        <div class="col-sm-12">
-            <input list="ref" name="ref" class="form-control" placeholder="Filtrar por nombres"
-                (change)="onRef($event)" [(ngModel)]="equipo.referencia"
-            >
-            <datalist id="ref">
-                <option *ngFor="let r of referencias" value="{{r.name}}">
-                    {{r.name}}
-                </option>
-            </datalist>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-12">Disco duro</label>
-        <div class="col-sm-12">
-            <input list="disk" name="disk" class="form-control" placeholder="Filtrar por nombres"
-                (change)="onDisk($event)" [(ngModel)]="equipo.discoduro"
-            >
-            <datalist id="disk">
-                <option *ngFor="let d of disks" value="{{d.name}}">
-                    {{d.name}}
-                </option>
-            </datalist>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="name">RAM</label>
-        <input type="text" [(ngModel)]="equipo.ram"  name="name" id="name" class="form-control" required>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-12">Procesador</label>
-        <div class="col-sm-12">
-            <input list="proc" name="proc" class="form-control" placeholder="Filtrar por nombres"
-                (change)="onProc($event)" [(ngModel)]="equipo.procesador"
-            >
-            <datalist id="proc">
-                <option *ngFor="let p of procs" value="{{p.name}}">
-                    {{p.name}}
-                </option>
-            </datalist>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-12">Persona a Cargo</label>
-        <div class="col-sm-12">
-            <input list="person" name="person" class="form-control" placeholder="Filtrar por cédula"
-                (change)="onPer($event)" [(ngModel)]="equipo.a_cargo"
-            >
-            <datalist id="person">
-                <option *ngFor="let per of people" value="{{per.ced}}">
-                    {{per.ced}}-{{per.name}}
-                </option>
-            </datalist>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="name">QR impresora</label>
-        <input type="text" [(ngModel)]="equipo.impqr"  name="name" id="name" class="form-control" required>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-12">Referencia impresora</label>
-        <div class="col-sm-12">
-            <input list="refimp" name="refimp" class="form-control" placeholder="Filtrar por referencia"
-                (change)="onRefImp($event)" [(ngModel)]="equipo.impref"
-            >
-            <datalist id="refimp">
-                <option *ngFor="let rimp of refimps" value="{{rimp.name}}">
-                    {{rimp.name}}
-                </option>
-            </datalist>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-12">Persona a Cargo  Impresora</label>
-        <div class="col-sm-12">
-            <input list="perimp" name="perimp" class="form-control" placeholder="Filtrar por cédula"
-                (change)="onPerImp($event)" [(ngModel)]="equipo.impa_cargo"
-            >
-            <datalist id="perimp">
-                <option *ngFor="let pp of people" value="{{pp.ced}}">
-                    {{pp.ced}}-{{pp.name}}
-                </option>
-            </datalist>
-        </div>
-        <div class="form-group">
-            <mat-form-field class="full-width">
-                <mat-label for="obs">Observaciones</mat-label>
-                <input matInput type="textarea" [(ngModel)]="equipo.observaciones"
-                    name="obs" id="obs"  required>
-            </mat-form-field>
-        </div>
-    </div>
-    
-
-    <div class="row">
-        <div class="form-group col">
-            <button type="submit" class="btn btn-primary  ">Guardar</button>
-        </div>
-        <div class="form-group col">
-            <button type="buttton" class="btn btn-cancel" data-dismiss="modal">Cerrar</button>
-        </div>
-    </div>   
-</form> -->
-
 <form class="contenedor" id="formGeneral" name="formGeneral" (submit)="createEquipo()">
     <div class="contenido">
         <h2>Registro de Equipo</h2>
@@ -166,7 +34,7 @@
     
             <mat-form-field appearance="fill">
                 <mat-label>Disco Duro</mat-label>
-                <input matInput type="tex" list="disk" name="disk" class="form-control" placeholder="Filtrar por nombres" (change)="onDisk($event)" [(ngModel)]="equipo.discoduro" required>
+                <input matInput type="tex" list="disk" name="disk" class="form-control" placeholder="Filtrar por nombres" (change)="onDisk($event)" [(ngModel)]="equipo.disco_duro" required>
                 <datalist id="disk" required>
                     <option *ngFor="let d of disks" value="{{d.name}}">
                         {{d.name}}
@@ -213,11 +81,11 @@
             <mat-form-field appearance="fill">
                 <mat-label>Referencia Impresora</mat-label>
                 <input matInput list="refimp" name="refimp" class="form-control" placeholder="Filtrar por referencia" (change)="onRefImp($event)" [(ngModel)]="equipo.impref">
-            <datalist id="refimp">
-                <option *ngFor="let rimp of refimps" value="{{rimp.name}}">
-                    {{rimp.name}}
-                </option>
-            </datalist>
+                <datalist id="refimp">
+                    <option *ngFor="let rimp of refimps" value="{{rimp.name}}">
+                        {{rimp.name}}
+                    </option>
+                </datalist>
             </mat-form-field> 
 
             <mat-form-field appearance="fill">
@@ -237,6 +105,20 @@
                 <textarea matInput type="textarea" [(ngModel)]="equipo.observaciones" name="obs" id="obs"></textarea>
             </mat-form-field>
         </div>
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>Marca Impresora</mat-label>
+            <mat-select [(ngModel)]="refimp.marca" name="tipos" id="tipos" required (change)="onMarca($event)">
+              <mat-option *ngFor="let marca  of marcas" [value]="marca">
+                {{marca}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Modelo</mat-label>
+            <input matInput type="text" [(ngModel)]="refimp.desc"  name="name" id="name" required>
+        </mat-form-field> -->
+            
 
         <div class="footer">
             <button type="submit" mat-raised-button color="primary">Guardar</button>
@@ -245,3 +127,4 @@
         </div>
     </div>
 </form>
+<p>Este es el qr</p>{{qrenviar}}

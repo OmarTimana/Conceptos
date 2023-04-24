@@ -40,10 +40,9 @@ export class ConceptoComponent {
       }
   }
   public cargarTabla(){
-    if(!this.showtabla){
-      this.showtabla=true
-      this.showdocumento=false
-    }
+    if(!this.showtabla)
+      {this.showtabla=true
+      this.showdocumento=false}
     else if(this.showtabla)
     {
       this.showtabla=false

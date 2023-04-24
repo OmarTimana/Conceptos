@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 
@@ -9,20 +10,23 @@ import Swal from 'sweetalert2';
   styleUrls: ['./modequipo.component.css']
 })
 export class ModequipoComponent {
+  qrenviar: string = '';
 
   equipo = {
     qr: '',
     fabricante: '',
     referencia: '',
-    discoduro: '',
+    disco_duro: '',
     ram: '',
     procesador: '',
     a_cargo: '',
     impqr: '',
     impref: '',
     impa_cargo: '',
-    observaciones:''
+    observaciones:'',
+    tram:'GB'
   }
+
 
   fabricantes :any= [];
   referencias:any=[];
@@ -34,13 +38,24 @@ export class ModequipoComponent {
   myControl = new FormControl('')
   options:string[] = []
 
-  constructor(public authService: AuthService) { 
+  constructor(public dialogRef: MatDialogRef<ModequipoComponent>,
+    public authService: AuthService) {
     this.getFabricantes()
     this.getReferencias()
     this.getDiscos()
     this.getProcesa()
     this.getPeopleCargo()
     this.getRefIm()
+    this.equipo.a_cargo=''
+    this.equipo.impa_cargo=''
+    this.equipo.disco_duro=''
+    this.equipo.fabricante=''
+    this.equipo.procesador=''
+    this.equipo.impqr=''
+    this.equipo.impref=''
+    this.equipo.ram=''
+    this.equipo.referencia=''
+    this.equipo.qr=''
   }
 
   onFab(e: any) {
@@ -78,7 +93,7 @@ export class ModequipoComponent {
   };
 
   onDisk(e: any) {
-    this.equipo.discoduro = e.target.value;
+    this.equipo.disco_duro = e.target.value;
   }
 
   getDiscos() {
@@ -152,8 +167,11 @@ export class ModequipoComponent {
   Complete($e:any){
     const body={id:$e.target.value}
     this.authService.getEqps(body).subscribe(res=>{
-      if (res.length!=0) {
+      if (res && res.length!=0) {
+        const ram=res.ram.toString().split(' ')
+        res.ram=ram[0]
         this.equipo=res
+        this.equipo.tram=ram[1]
         if (this.equipo.a_cargo) {
           this.equipo.a_cargo=res.a_cargo.ced
         }
@@ -165,29 +183,25 @@ export class ModequipoComponent {
   }
 
   public createEquipo() {
-
-    if((this.equipo.a_cargo.length>0 || this.equipo.impa_cargo.length>0) && this.equipo.qr.length>0)
-    {
+    this.qrenviar=this.equipo.qr;
+    if((this.equipo.a_cargo.length>0 || this.equipo.impa_cargo.length>0) && this.equipo.qr.length>0){
+      
+      this.equipo.ram=this.equipo.ram + ' ' + this.equipo.tram
       this.authService.createEquipo(this.equipo).subscribe(
         res=>{        
           //se registra al usuario y se lanza un mensaje de éxito
-          Swal.fire("Registro exitoso","El equipo fue registrado","success")  
-          //luego se limpian todos los campos
-          this.equipo.a_cargo=''
-          this.equipo.discoduro=''
-          this.equipo.fabricante=''
-          this.equipo.impqr=''
-          this.equipo.impref=''
-          this.equipo.ram=''
-          this.equipo.referencia=''
-
+          Swal.fire("Registro exitoso","Equipo Añadido","success")
          },
          //en caso de error se muestra el error por consola
-         err=>Swal.fire("Error","El equipo ya existe","error")
+         err=>{
+          if (err.error.message==='Persona a Cargo no encontrado') {
+            Swal.fire("Error",err.error.message,"error")
+          }else{
+            Swal.fire("Error","El equipo ya existe","error")
+          }
+         }
       )
     }
-    Swal.fire("Error","Ingrese datos válidos","error")
-
   }
 
   cliko(){

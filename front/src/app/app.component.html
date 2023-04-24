@@ -1,52 +1,4 @@
-<!-- <div class="content">
-  <nav class="navbar  navbar-dark bg-primary" aria-haspopup="true">
-    <a class="navbar-brand" routerLink="/home" routerLinkActive="active">Inicio</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ">
-        <ng-container *ngIf="authService.loggedIn()">
-          <ng-container  *ngIf="intmService.esUser() || intmService.esAdmin()">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/main" routerLinkActive="active">Principal</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/conceptos" routerLinkActive="active">Gestionar Conceptos</a>
-            </li>
-          
-          </ng-container>   
-
-          <ng-container *ngIf="intmService.esAdmin()">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/registeruser" routerLinkActive="active">Crear Usuarios</a>
-            </li>
-          </ng-container>
-        </ng-container>
-        
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <ng-container *ngIf="!authService.loggedIn(); else loggedIn ">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/signin" routerLinkActive="active">Ingreso</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/signup" routerLinkActive="active">Registro</a>
-        </li>
-        </ng-container>
-        <ng-template #loggedIn>
-        <li class="nav-item">
-          <a class="nav-link" style="cursor:pointer" (click)="authService.logOut()">Cerrar sesión</a>
-        </li>
-        </ng-template>
-      </ul>
-    </div>
-  </nav>
-  <router-outlet></router-outlet>
-</div>
- -->
- <div class="contenedor">
+<div class="contenedor">
 
     <mat-toolbar class="nav" color="primary">
 
@@ -162,11 +114,5 @@
 
  </div>
 
+ 
 
-
-
-<!-- Opcion para que al regresar no salga el cerrar sesion
-  
-&& !authService.getToken()
-            
-<a style="cursor:pointer" (click)="authService.logOut()">Cerrar sesión</a> -->
