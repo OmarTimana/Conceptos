@@ -15,31 +15,48 @@ export class CrearPdfComponent {
 
  tableData=[[]]
 
-  pdf=new jspdf();
+ img = new Image()
+ 
+  pdf=new jspdf({
+    orientation:'portrait',
+    unit:'px',
+    format:'letter'
+  });
 
+  fuenteParrafo=['Times-Roman','normal']
   constructor() { }
  
   ngOnInit() {
   }
   
+  
   generatePdfFile(){
     
 
     this.pdf.setFontSize(20);
-    this.pdf.text('Concepto Técnico',10,8);
+    this.pdf.setFont('Times','bold')
+    this.pdf.text('Concepto Técnico',this.pdf.internal.pageSize.width/2,25,{align:'center'});
    
    autoTable(this.pdf,{
       head:this.header,
       body:this.tableData,
-      theme:'plain',
+      theme:'striped',
+      startY:50
       
     })
-    this.pdf.addPage();
-    this.pdf.text('Página dos',20, 20 )
+    this.pdf.setFontSize(12);
+    this.pdf.setFont('Times','normal')
+    this.pdf.text('Hallazgos:\n\nEn la visita realizada por ',40,100)
+    this.img.src = 'assets/addUser.webp'
+    this.pdf.addImage(this.img, 'png',100,150,200,200)
+
+    this.pdf.addPage('a4','landscape');
+    this.pdf.text('Página dos', this.pdf.internal.pageSize.width/2,25,{align:'center'} )
     this.pdf.setProperties({
       title:'Concepto técnico Facultad de Artes',
       subject:'Se busca informar el estado de los'
     })
+    
     this.pdf.output('dataurlnewwindow')
 
     this.pdf.save('concepto.pdf');

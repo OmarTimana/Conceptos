@@ -15,6 +15,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
+import {MatChipsModule} from '@angular/material/chips';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonToggleModule,
     MatPaginatorModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatChipsModule,
   ],
   exports: [
     CommonModule,
@@ -52,6 +55,7 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonToggleModule,
     MatPaginatorModule,
     MatTableModule,
+    MatChipsModule,
   ],
   providers:[
     {

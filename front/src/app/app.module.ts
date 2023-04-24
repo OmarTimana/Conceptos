@@ -68,7 +68,7 @@ import { CrearPdfComponent } from './components/crear-pdf/crear-pdf.component';
     BrowserAnimationsModule,
     SharedModule,
     MatTableModule,
-    PdfViewerModule
+    PdfViewerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

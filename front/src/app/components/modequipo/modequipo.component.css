@@ -41,6 +41,11 @@ mat-form-field{
     width: 40%;
 }
 
+input{
+    opacity: 0.3;
+}
+
+
 mat-divider{
     width: 100%;
     margin-bottom: 4%;

@@ -1,4 +1,4 @@
-<form class="from-group col-sm-10"  style="margin:0 auto" id="formGeneral" name="formGeneral" (submit)="createDocumento()">
+<!-- <form class="from-group col-sm-10"  style="margin:0 auto" id="formGeneral" name="formGeneral" (submit)="createDocumento()">
     <div class="modal-factores">
         <h3>Crear Documento</h3>
     </div>
@@ -40,4 +40,59 @@
             <button type="buttton" class="btn btn-cancel" data-dismiss="modal">Cerrar</button>
         </div> 
     </div>   
+</form> -->
+
+
+
+
+<form class="contenedor" id="formGeneral" name="formGeneral" (submit)="createDocumento()">
+    <div class="contenido">
+        <h2>Crear Documento</h2>
+        <mat-divider></mat-divider>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Dirigido a</mat-label>
+            <input matInput type="text" [(ngModel)]="documento.para"  name="para" id="para" required>                
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Remitente</mat-label>
+            <input matInput type="text" [(ngModel)]="documento.de"  name="remitente" id="remitente" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Asunto</mat-label>
+            <input matInput type="text" [(ngModel)]="documento.asunto"  name="asunto" id="asunto" required>
+        </mat-form-field>
+
+        <mat-form-field class="fill">
+            <mat-label>Hallazgos</mat-label>
+            <textarea matInput id="hallazgos" name="hallazgos" [(ngModel)]="documento.hallazgos" required></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="fill">
+            <mat-label>Notas</mat-label>
+            <textarea matInput id="notas" name="notas" [(ngModel)]="documento.notas" required></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="fill">
+            <mat-label>Recomendaciones</mat-label>
+            <textarea matInput id="recomendaciones" name="recomendaciones" [(ngModel)]="documento.recomendaciones" required></textarea>
+        </mat-form-field>
+
+        <div class="firmas">
+            <mat-chip-listbox aria-label="Fish selection">
+                <mat-chip-option>Firma Jefe Soporte</mat-chip-option>
+            </mat-chip-listbox>
+            <mat-chip-listbox aria-label="Fish selection">
+                <mat-chip-option>Firma Jefe Soporte</mat-chip-option>
+            </mat-chip-listbox>
+        </div>
+
+        <div class="footer">
+            <button type="submit" mat-raised-button color="primary">Guardar Documento</button>
+
+            <button type="submit" mat-raised-button color="warn">Cancelar</button>
+        </div>
+    </div>
 </form>
