@@ -18,8 +18,17 @@ import { RefimpComponent } from '../refimp/refimp.component';
   styleUrls: ['./tabla.component.css']
 })
 export class TablaComponent implements AfterViewInit {
+ 
+  equipo='hello'
 
   constructor( public dialog: MatDialog ) { }
+
+  @ViewChild(ModequipoComponent) equipoChil:any;
+
+  verQr():void{
+    this.equipo=this.equipoChil.qrenviar;
+  }
+
 
   openEquipo(): void {
     const d=this.dialog.open( ModequipoComponent, {

@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./modequipo.component.css']
 })
 export class ModequipoComponent {
+  qrenviar: string = '';
 
   equipo = {
     qr: '',
@@ -181,8 +182,10 @@ export class ModequipoComponent {
     })
   }
 
-  public createEquipo() { // falta verificar emm pues casi todo elemento nmms aleja porque >:/
+  public createEquipo() {
+    this.qrenviar=this.equipo.qr;
     if((this.equipo.a_cargo.length>0 || this.equipo.impa_cargo.length>0) && this.equipo.qr.length>0){
+      
       this.equipo.ram=this.equipo.ram + ' ' + this.equipo.tram
       this.authService.createEquipo(this.equipo).subscribe(
         res=>{        
