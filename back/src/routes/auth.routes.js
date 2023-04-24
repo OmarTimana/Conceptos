@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import { verifySingup } from '../middlewares'
+import { verifySignup } from '../middlewares'
 const router= Router()
 
 import * as personCtrl from '../controllers/personaCargo.controller'
@@ -10,15 +10,15 @@ import * as equipoCtrl from '../controllers/equipo.controller'
 router.post('/signin', authCtrl.signIn)
 
 //registrar usuarios como super admin
-router.post('/registeruser',verifySingup.checkDuplicatedCedorEmail,verifySingup.checkRolesExisted,verifySingup.checkDependenciaExist,
+router.post('/registeruser',verifySignup.checkDuplicatedCedorEmail,verifySignup.checkRolesExisted,verifySignup.checkDependenciaExist,
 authCtrl.registrarUsuario)
 
 //ruta para crear espacios, primero se verifica si el espacio o no y en base a esto se ejecuta el método crear espacio
-router.post('/creardependencia', verifySingup.checkDepExCrear,authCtrl.crearDependencia)
+router.post('/creardependencia', verifySignup.checkDepExCrear,authCtrl.crearDependencia)
 
-router.post('/creartabla',verifySingup.checkTablaExist,authCtrl.crearTabla)
+router.post('/creartabla',verifySignup.checkTablaExist,authCtrl.crearTabla)
 
-router.post('/registerperson', verifySingup.checkDuplicatedCed,personCtrl.registrarPersona)
+router.post('/registerperson', verifySignup.checkDuplicatedCed,personCtrl.registrarPersona)
 
 router.post('/registerfab',authCtrl.crearFabricante)
 
@@ -47,7 +47,7 @@ router.get('/getrefpc',authCtrl.refspc)
 router.get('/peoplecargo',authCtrl.personasCargo)
 
 //ruta para crear equipo
-router.post('/crearequipo',equipoCtrl.crearEquipo) // se quito el checkEquipoExiste
+router.post('/crearequipo',verifySignup.checkEquipoExist,equipoCtrl.crearEquipo) // se quito el checkEquipoExiste
 router.delete('/removequipo/:id',equipoCtrl.removeEquipo)
 router.post('/modeqp', equipoCtrl.updateEquipo)
 router.post('/geteqps',equipoCtrl.GetEquipos)
