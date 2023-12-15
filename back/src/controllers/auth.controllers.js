@@ -36,7 +36,6 @@ export const signIn = async (req, res) => {
 
     }
     //si el usuario existe y la contraseña coincide se retorna el token
-
     const token = jwt.sign({ id: userFound._id }, config.SECRET, { expiresIn: 1800 })
     //se envía el rol, el id del usuario y el token para luego ser gestionados desde el frontend
     res.json({
